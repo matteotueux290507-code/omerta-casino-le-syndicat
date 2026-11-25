@@ -1,0 +1,3381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMERTÀ CASINO : Le Syndicat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --obsidian: #080608;
+      --mahogany: #24100c;
+      --mahogany-dark: #140806;
+      --brass: #d4af37;
+      --brass-light: #f6dc7a;
+      --brass-dark: #8c6a1c;
+      --crimson: #991b1b;
+      --emerald: #059669;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--obsidian);
+      color: #f4efe6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+    .font-deco {
+      font-family: 'Cinzel', Georgia, serif;
+    }
+
+    .font-noir {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .font-mono-num {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Motifs géométriques Art Déco */
+    .art-deco-bg {
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.14) 0%, transparent 55%),
+        repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.03) 0px, rgba(212, 175, 55, 0.03) 1px, transparent 1px, transparent 14px),
+        linear-gradient(180deg, #0b080c 0%, #140b0e 60%, #070507 100%);
+    }
+
+    .deco-frame {
+      border: 1px solid rgba(212, 175, 55, 0.42);
+      box-shadow:
+        0 14px 36px rgba(0, 0, 0, 0.85),
+        inset 0 0 0 3px rgba(12, 8, 9, 0.85),
+        inset 0 0 0 4px rgba(212, 175, 55, 0.2);
+    }
+
+    .brass-panel {
+      background: linear-gradient(160deg, #2d1810 0%, #180b08 55%, #23110b 100%);
+      border-left: 2px solid #b88a1e;
+      box-shadow: -8px 0 30px rgba(0, 0, 0, 0.9), inset 2px 0 12px rgba(212, 175, 55, 0.12);
+    }
+
+    .mahogany-counter {
+      background:
+        linear-gradient(180deg, rgba(246, 220, 122, 0.25) 0px, rgba(184, 138, 30, 0.65) 4px, #3b1911 5px, #210c08 45%, #120604 100%);
+      border-top: 2px solid #f6dc7a;
+      box-shadow: 0 -12px 35px rgba(0, 0, 0, 0.85), inset 0 6px 18px rgba(212, 175, 55, 0.15);
+    }
+
+    /* Décors distincts des 4 étages */
+    .floor-theme-1 {
+      background:
+        radial-gradient(circle at 50% 25%, rgba(16, 185, 129, 0.18) 0%, transparent 55%),
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0px, rgba(0, 0, 0, 0.35) 2px, transparent 2px, transparent 24px),
+        repeating-linear-gradient(90deg, rgba(30, 20, 18, 0.5) 0px, rgba(30, 20, 18, 0.5) 2px, transparent 2px, transparent 48px),
+        linear-gradient(180deg, #0d1612 0%, #18100d 65%, #090606 100%);
+    }
+
+    .floor-theme-2 {
+      background:
+        radial-gradient(circle at 50% 20%, rgba(220, 38, 38, 0.26) 0%, transparent 60%),
+        repeating-linear-gradient(90deg, rgba(127, 29, 29, 0.18) 0px, rgba(69, 10, 10, 0.28) 18px, rgba(127, 29, 29, 0.18) 36px),
+        linear-gradient(180deg, #24090e 0%, #170609 70%, #0a0405 100%);
+    }
+
+    .floor-theme-3 {
+      background:
+        radial-gradient(circle at 50% 18%, rgba(56, 189, 248, 0.18) 0%, rgba(212, 175, 55, 0.12) 35%, transparent 65%),
+        repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.06) 0px, rgba(212, 175, 55, 0.06) 1px, transparent 1px, transparent 22px),
+        linear-gradient(180deg, #091326 0%, #0d182e 60%, #070a14 100%);
+    }
+
+    .floor-theme-4 {
+      background:
+        radial-gradient(circle at 50% 15%, rgba(246, 220, 122, 0.28) 0%, rgba(180, 83, 9, 0.15) 40%, transparent 70%),
+        linear-gradient(180deg, #1b1307 0%, #120c07 65%, #080605 100%);
+    }
+
+    /* Boutons Art Déco */
+    .btn-brass {
+      background: linear-gradient(135deg, #9e7518 0%, #f5d469 48%, #b8881e 100%);
+      color: #160b04;
+      font-weight: 800;
+      border: 1px solid #fef08a;
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      transition: transform 0.16s ease, filter 0.16s ease, box-shadow 0.16s ease;
+    }
+    .btn-brass:hover:not(:disabled) {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow: 0 6px 24px rgba(245, 212, 105, 0.55);
+    }
+    .btn-brass:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+    .btn-brass:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-emerald-deco {
+      background: linear-gradient(135deg, #065f46 0%, #10b981 50%, #047857 100%);
+      color: #fff;
+      font-weight: 800;
+      border: 1px solid #6ee7b7;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+      transition: all 0.16s ease;
+    }
+    .btn-emerald-deco:hover:not(:disabled) {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+    .btn-emerald-deco:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-crimson-deco {
+      background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 50%, #991b1b 100%);
+      color: #fff;
+      font-weight: 800;
+      border: 1px solid #fca5a5;
+      box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
+      transition: all 0.16s ease;
+    }
+    .btn-crimson-deco:hover:not(:disabled) {
+      transform: translateY(-1px);
+      filter: brightness(1.1);
+    }
+
+    /* Animations PNJ (Respiration, Clignement, Fumée, Gestes) */
+    @keyframes npcBreathe {
+      0%, 100% { transform: translateY(0px) scaleY(1); }
+      50% { transform: translateY(-3px) scaleY(1.012); }
+    }
+    .npc-breathe {
+      animation: npcBreathe 3.6s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    @keyframes npcBlink {
+      0%, 92%, 100% { transform: scaleY(1); }
+      95% { transform: scaleY(0.08); }
+    }
+    .npc-eye {
+      animation: npcBlink 4.2s infinite;
+      transform-origin: center;
+    }
+
+    @keyframes smokeWisp {
+      0% { opacity: 0; transform: translateY(0) translateX(0) scale(0.7); }
+      30% { opacity: 0.55; }
+      70% { opacity: 0.3; transform: translateY(-22px) translateX(6px) scale(1.25); }
+      100% { opacity: 0; transform: translateY(-42px) translateX(-4px) scale(1.6); }
+    }
+    .smoke-puff-1 { animation: smokeWisp 3.2s ease-out infinite; }
+    .smoke-puff-2 { animation: smokeWisp 3.2s ease-out 1.5s infinite; }
+
+    @keyframes npcHandGesture {
+      0%, 100% { transform: rotate(0deg) translateY(0); }
+      50% { transform: rotate(-4deg) translateY(-3px); }
+    }
+    .npc-gesture {
+      animation: npcHandGesture 2.8s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* Portes métalliques d'ascenseur Art Déco */
+    .elevator-door-left, .elevator-door-right {
+      transition: transform 0.48s cubic-bezier(0.65, 0, 0.35, 1);
+      background:
+        repeating-linear-gradient(90deg, rgba(212, 175, 55, 0.08) 0px, rgba(212, 175, 55, 0.08) 2px, transparent 2px, transparent 28px),
+        linear-gradient(135deg, #1b1612 0%, #2c2219 50%, #14100d 100%);
+    }
+    .elevator-door-left {
+      transform: translateX(-101%);
+      border-right: 3px solid #d4af37;
+    }
+    .elevator-door-right {
+      transform: translateX(101%);
+      border-left: 3px solid #d4af37;
+    }
+    .elevator-closed .elevator-door-left,
+    .elevator-closed .elevator-door-right {
+      transform: translateX(0%);
+    }
+
+    /* Vibration bouton verrouillé */
+    @keyframes lockShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-5px) rotate(-2deg); }
+      40% { transform: translateX(5px) rotate(2deg); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+    .animate-lock-shake {
+      animation: lockShake 0.38s ease-in-out;
+    }
+
+    /* Pièce 3D Pile ou Face */
+    .coin-stage { perspective: 900px; }
+    .coin-3d {
+      width: 120px;
+      height: 120px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .coin-face {
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid #fef08a;
+      box-shadow: 0 0 28px rgba(212, 175, 55, 0.45), inset 0 0 14px rgba(0, 0, 0, 0.45);
+    }
+    .coin-front {
+      background: radial-gradient(circle at 30% 30%, #fde68a, #d4af37 60%, #78530c 100%);
+      color: #1c0f04;
+    }
+    .coin-back {
+      background: radial-gradient(circle at 30% 30%, #fca5a5, #b91c1c 60%, #450a0a 100%);
+      color: #fef2f2;
+      transform: rotateY(180deg);
+    }
+
+    /* Animations UI générales */
+    @keyframes timerDanger {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.65); }
+      50% { transform: scale(1.04); box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.45); }
+    }
+    .timer-danger {
+      animation: timerDanger 0.75s infinite;
+      border-color: #ef4444 !important;
+      color: #fca5a5 !important;
+    }
+
+    @keyframes safeExitGlow {
+      0%, 100% { box-shadow: 0 0 14px rgba(16, 185, 129, 0.5), 0 0 24px rgba(246, 220, 122, 0.35); }
+      50% { box-shadow: 0 0 26px rgba(16, 185, 129, 0.9), 0 0 40px rgba(246, 220, 122, 0.75); }
+    }
+    .exit-unlocked-glow {
+      animation: safeExitGlow 1.3s infinite;
+    }
+
+    @keyframes modalPopIn {
+      from { opacity: 0; transform: scale(0.93) translateY(14px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-animate {
+      animation: modalPopIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes reelSpin {
+      0% { transform: translateY(-6px); filter: blur(1.5px); }
+      50% { transform: translateY(6px); filter: blur(1.5px); }
+      100% { transform: translateY(-6px); filter: blur(1.5px); }
+    }
+    .reel-spinning {
+      animation: reelSpin 0.11s infinite linear;
+    }
+
+    @keyframes diceTumble {
+      0% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-16deg) scale(1.08); }
+      50% { transform: rotate(14deg) scale(0.95); }
+      75% { transform: rotate(-10deg) scale(1.05); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+    .dice-rolling {
+      animation: diceTumble 0.22s infinite linear;
+    }
+
+    @keyframes bloodFlashAnim {
+      0% { opacity: 0.95; }
+      100% { opacity: 0; }
+    }
+    .blood-flash {
+      animation: bloodFlashAnim 1.2s ease-out forwards;
+    }
+
+    /* Scrollbar discrète */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: #0d080a; }
+    ::-webkit-scrollbar-thumb { background: #785819; border-radius: 9999px; }
+  </style>
+</head>
+<body class="art-deco-bg antialiased selection:bg-amber-400 selection:text-black">
+
+  <!-- Flash rouge lors de l'exécution -->
+  <div id="blood-flash-layer" class="hidden fixed inset-0 bg-red-600 z-[120] pointer-events-none"></div>
+
+  <!-- Conteneur de notifications Toast -->
+  <div id="toast-box" class="fixed top-20 right-24 sm:right-36 z-[110] flex flex-col gap-2 max-w-xs pointer-events-none"></div>
+
+  <!-- ===================================================================== -->
+  <!-- 1. ÉCRAN D'ACCUEIL (AMBIANCE FILM NOIR & ARCHIVES DU SYNDICAT)        -->
+  <!-- ===================================================================== -->
+  <section id="screen-home" class="relative min-h-screen flex flex-col justify-between p-4 sm:p-8 overflow-hidden">
+    <!-- Canvas Particules de fumée & poussière dorée -->
+    <canvas id="home-particles-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <!-- En-tête Art Déco -->
+    <header class="relative z-10 max-w-6xl w-full mx-auto flex items-center justify-between border-b border-amber-500/30 pb-4">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-300 via-amber-500 to-amber-800 flex items-center justify-center text-black font-deco font-black text-xl shadow-lg border border-amber-200">
+          ♠
+        </div>
+        <div>
+          <span class="text-[11px] uppercase tracking-[0.28em] text-amber-400/90 block">Cercle Clandestin • 1929</span>
+          <span class="font-deco font-bold text-sm sm:text-base text-stone-100">FAMIGLIA MORETTI</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <div class="px-3.5 py-1.5 rounded-xl bg-black/70 border border-amber-500/30 text-xs text-stone-300">
+          Solde en poche : <span id="home-cash-display" class="font-mono-num font-bold text-amber-300">0 €</span>
+        </div>
+        <button onclick="AudioEngine.toggleMute()" id="mute-btn-home" class="p-2.5 rounded-xl bg-stone-950/90 border border-amber-500/40 text-amber-300 hover:bg-stone-900 transition cursor-pointer" title="Activer/Couper le son">
+          🔊
+        </button>
+      </div>
+    </header>
+
+    <!-- Corps principal -->
+    <main class="relative z-10 max-w-6xl w-full mx-auto my-auto py-6 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center">
+
+      <!-- Colonne Gauche : Titre, Briefing & Portrait animé du Parrain -->
+      <div class="lg:col-span-7 space-y-5">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-950/80 border border-red-500/50 text-red-200 text-xs font-bold tracking-widest uppercase">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+          Dette de Sang • Survie sous Chronomètre
+        </div>
+
+        <div>
+          <h1 class="font-deco text-4xl sm:text-6xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-400 to-amber-700 drop-shadow">
+            OMERTÀ CASINO
+          </h1>
+          <p class="font-noir italic text-xl sm:text-2xl text-red-400 mt-1">
+            Le Syndicat ne prête jamais sans intérêt...
+          </p>
+        </div>
+
+        <!-- Carte Visual Novel : Don Moretti -->
+        <div class="deco-frame rounded-2xl bg-stone-950/90 backdrop-blur-md p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4">
+          <!-- Portrait SVG Animé du Parrain -->
+          <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-gradient-to-b from-amber-950/70 via-stone-900 to-black border border-amber-500/40 shrink-0 overflow-hidden flex items-end justify-center relative">
+            <svg viewBox="0 0 140 150" class="w-full h-full npc-breathe">
+              <!-- Costume -->
+              <path d="M22 150 C25 112, 45 104, 70 104 C95 104, 115 112, 118 150 Z" fill="#171413" stroke="#d4af37" stroke-width="1.2"/>
+              <polygon points="70,105 56,150 84,150" fill="#f5f5f4"/>
+              <polygon points="70,108 65,145 70,150 75,145" fill="#991b1b"/>
+              <!-- Rose rouge -->
+              <circle cx="92" cy="124" r="5" fill="#dc2626"/>
+              <!-- Visage -->
+              <rect x="61" y="86" width="18" height="20" rx="6" fill="#d6a37c"/>
+              <path d="M47 56 C47 36, 93 36, 93 56 C93 80, 84 94, 70 94 C56 94, 47 80, 47 56 Z" fill="#e0b08a"/>
+              <!-- Yeux qui clignent -->
+              <g class="npc-eye">
+                <ellipse cx="60" cy="63" rx="3.5" ry="2.2" fill="#1c1917"/>
+                <ellipse cx="80" cy="63" rx="3.5" ry="2.2" fill="#1c1917"/>
+              </g>
+              <!-- Sourcils sévères -->
+              <path d="M53 57 L65 60" stroke="#292524" stroke-width="2.6" stroke-linecap="round"/>
+              <path d="M87 57 L75 60" stroke="#292524" stroke-width="2.6" stroke-linecap="round"/>
+              <!-- Moustache -->
+              <path d="M60 77 Q70 73 80 77" stroke="#292524" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <!-- Chapeau Fedora -->
+              <ellipse cx="70" cy="44" rx="44" ry="8" fill="#1c1917" stroke="#d4af37" stroke-width="1"/>
+              <path d="M44 44 C46 22, 94 22, 96 44 Z" fill="#292524"/>
+              <rect x="45" y="39" width="50" height="4" fill="#d4af37"/>
+              <!-- Cigare & Fumée -->
+              <rect x="77" y="80" width="22" height="4" rx="1.5" transform="rotate(12 77 80)" fill="#78350f"/>
+              <circle cx="99" cy="85" r="2.2" fill="#ef4444"/>
+              <circle cx="101" cy="76" r="4" fill="#d6d3d1" class="smoke-puff-1"/>
+              <circle cx="104" cy="68" r="5.5" fill="#a8a29e" class="smoke-puff-2"/>
+            </svg>
+          </div>
+
+          <div class="space-y-2 text-center sm:text-left">
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+              <span class="font-deco font-bold text-amber-300 text-sm sm:text-base">DON VITTORIO MORETTI</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 border border-amber-500/40 text-amber-200 uppercase">Le Parrain</span>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-300 leading-relaxed italic">
+              « Tu entres avec <strong class="text-emerald-400">100 €</strong>. Chaque jour, mes croupiers te laissent <strong class="text-amber-300">90 secondes</strong> pour atteindre ma somme — <strong class="text-amber-300">250 €</strong> dès ce soir. Monte les étages par l'ascenseur à mesure que tu survis. Si tu sors sans le compte ou si le temps expire... mes nettoyeurs effacent ton nom. »
+            </p>
+          </div>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="flex flex-wrap gap-3 pt-1">
+          <button onclick="Game.startNewRun()" class="btn-brass px-7 py-4 rounded-2xl text-base sm:text-lg tracking-wider cursor-pointer flex items-center gap-2.5">
+            <span>🎰</span> ENTRER DANS LE CASINO (100 €)
+          </button>
+          <button onclick="UI.openModal('modal-rules')" class="px-5 py-4 rounded-2xl bg-stone-950/90 hover:bg-stone-900 border border-amber-500/40 text-amber-200 font-semibold text-sm transition cursor-pointer">
+            📜 Règles & Paliers
+          </button>
+        </div>
+      </div>
+
+      <!-- Colonne Droite : Archives & Records Sauvegardés -->
+      <div class="lg:col-span-5">
+        <div class="deco-frame rounded-3xl bg-stone-950/90 backdrop-blur-md p-6 space-y-4">
+          <div class="flex items-center justify-between border-b border-amber-500/25 pb-3">
+            <h2 class="font-deco font-bold text-base sm:text-lg text-amber-300 flex items-center gap-2">
+              <span>🏆</span> ARCHIVES DU SYNDICAT
+            </h2>
+            <span class="text-[11px] text-stone-400 uppercase tracking-wider">Records Locaux</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3.5 rounded-2xl bg-black/70 border border-amber-500/30">
+              <span class="text-[11px] uppercase tracking-wider text-stone-400 block">Meilleur Jour</span>
+              <span id="rec-best-day" class="font-deco font-black text-2xl text-amber-400 mt-0.5 block">Jour 0</span>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-black/70 border border-emerald-500/30">
+              <span class="text-[11px] uppercase tracking-wider text-stone-400 block">Plus Gros Solde</span>
+              <span id="rec-best-bal" class="font-mono-num font-extrabold text-xl text-emerald-400 mt-0.5 block">0 €</span>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-black/70 border border-stone-800">
+              <span class="text-[11px] uppercase tracking-wider text-stone-400 block">Parties Jouées</span>
+              <span id="rec-games-played" class="font-mono-num font-extrabold text-xl text-stone-200 mt-0.5 block">0</span>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-black/70 border border-amber-500/20">
+              <span class="text-[11px] uppercase tracking-wider text-stone-400 block">Étages Débloqués</span>
+              <span id="rec-max-floor" class="font-deco font-extrabold text-xl text-amber-300 mt-0.5 block">1 / 4</span>
+            </div>
+          </div>
+
+          <!-- Aperçu des 4 étages -->
+          <div class="pt-2 border-t border-stone-800/90 space-y-2">
+            <span class="text-[11px] uppercase tracking-wider text-amber-400/80 font-bold block">Plan de l'Ascenseur Art Déco</span>
+            <div class="space-y-1.5 text-xs">
+              <div class="flex justify-between items-center px-3 py-2 rounded-xl bg-black/50 border border-stone-800">
+                <span class="text-amber-300 font-bold">Étage 1 • Sous-Sol</span>
+                <span class="text-stone-400">Jour 1 • Slots & Pile ou Face</span>
+              </div>
+              <div class="flex justify-between items-center px-3 py-2 rounded-xl bg-black/50 border border-stone-800">
+                <span class="text-amber-300 font-bold">Étage 2 • Salon Velours</span>
+                <span class="text-stone-400">Jour 3 • Blackjack & Roulette</span>
+              </div>
+              <div class="flex justify-between items-center px-3 py-2 rounded-xl bg-black/50 border border-stone-800">
+                <span class="text-amber-300 font-bold">Étage 3 • Salle Art Déco</span>
+                <span class="text-stone-400">Jour 5 • Crash & Dés Pègre</span>
+              </div>
+              <div class="flex justify-between items-center px-3 py-2 rounded-xl bg-black/50 border border-stone-800">
+                <span class="text-amber-300 font-bold">Étage 4 • Penthouse VIP</span>
+                <span class="text-stone-400">Jour 7 • Mines & High-Low</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="relative z-10 text-center text-xs text-stone-500 pt-3 border-t border-stone-900/80">
+      OMERTÀ CASINO • Jeu de simulation fictif sans argent réel. Surveillez le sablier.
+    </footer>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 2. ÉCRAN EN JEU : SCÈNE GUICHET + ASCENSEUR ART DÉCO FIXE À DROITE    -->
+  <!-- ===================================================================== -->
+  <section id="screen-game" class="hidden min-h-screen flex flex-col">
+
+    <!-- HUD SUPÉRIEUR -->
+    <header class="relative z-30 bg-stone-950/95 border-b-2 border-amber-500/40 px-3 sm:px-6 py-2.5 shadow-xl">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
+        <!-- Jour & Étage -->
+        <div class="flex items-center gap-2.5">
+          <div class="px-3 py-1.5 rounded-xl bg-gradient-to-b from-amber-500/25 to-amber-950/50 border border-amber-400/50 text-center">
+            <span class="text-[9px] uppercase tracking-widest text-amber-300 block">Contrat</span>
+            <span id="hud-day" class="font-deco font-black text-sm sm:text-lg text-amber-300">JOUR 1</span>
+          </div>
+          <div>
+            <span id="hud-floor-tag" class="text-[10px] uppercase tracking-widest text-amber-400/80 font-bold block">ÉTAGE 1</span>
+            <span id="hud-floor-title" class="font-deco font-bold text-xs sm:text-base text-stone-100">Sous-Sol Clandestin</span>
+          </div>
+        </div>
+
+        <!-- Solde & Objectif -->
+        <div class="flex items-center gap-3 sm:gap-5 bg-black/80 px-3.5 py-1.5 rounded-2xl border border-amber-500/25">
+          <div>
+            <span class="text-[9px] uppercase tracking-wider text-stone-400 block">Votre Solde</span>
+            <span id="hud-balance" class="font-mono-num font-extrabold text-base sm:text-xl text-emerald-400">100 €</span>
+          </div>
+          <div class="h-7 w-px bg-stone-800"></div>
+          <div>
+            <span class="text-[9px] uppercase tracking-wider text-stone-400 block">Objectif Jour</span>
+            <span id="hud-target" class="font-mono-num font-extrabold text-base sm:text-xl text-amber-300">250 €</span>
+          </div>
+        </div>
+
+        <!-- Chronomètre & Bouton Quitter le Casino -->
+        <div class="flex items-center gap-2 ml-auto sm:ml-0">
+          <div id="hud-timer-box" class="px-3 py-1.5 rounded-xl bg-black border border-amber-500/40 text-center min-w-[78px]">
+            <span class="text-[9px] uppercase tracking-wider text-stone-400 block">Chrono</span>
+            <span id="hud-timer" class="font-mono-num font-black text-base sm:text-lg text-stone-100">01:30</span>
+          </div>
+
+          <button id="btn-exit-casino" onclick="Game.attemptExitCasino()" class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-extrabold text-xs sm:text-sm tracking-wide transition cursor-pointer flex items-center gap-1.5 bg-red-950 border border-red-500/70 text-red-200 hover:bg-red-900">
+            <span>🚪</span>
+            <span id="btn-exit-text">QUITTER</span>
+          </button>
+
+          <button onclick="AudioEngine.toggleMute()" id="mute-btn-game" class="p-2 rounded-xl bg-stone-900 border border-amber-500/30 text-amber-300 hover:bg-stone-800 transition cursor-pointer" title="Son On/Off">
+            🔊
+          </button>
+        </div>
+      </div>
+
+      <!-- Barre de progression de la dette -->
+      <div class="max-w-7xl mx-auto mt-2 flex items-center gap-3">
+        <div class="flex-1 h-2 bg-black rounded-full overflow-hidden border border-stone-800">
+          <div id="hud-progress-fill" class="h-full bg-gradient-to-r from-red-600 via-amber-500 to-amber-300 transition-all duration-300" style="width: 40%;"></div>
+        </div>
+        <span id="hud-progress-label" class="font-mono-num text-[11px] font-bold text-amber-300 shrink-0">100 / 250 € (40%)</span>
+      </div>
+
+      <!-- Bannière d'avertissement sortie sans la somme (remplace confirm()) -->
+      <div id="exit-danger-banner" class="hidden max-w-7xl mx-auto mt-2 p-2.5 rounded-xl bg-red-950 border border-red-500 flex flex-wrap items-center justify-between gap-2 text-xs">
+        <span class="text-red-100 font-semibold">🔫 <strong>DANGER MORTEL :</strong> Vous n'avez pas encore atteint l'objectif ! Sortir maintenant entraînera votre exécution immédiate.</span>
+        <div class="flex gap-2">
+          <button onclick="Game.hideExitWarning()" class="px-3 py-1 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 font-bold cursor-pointer">Rester</button>
+          <button onclick="Game.confirmExecutionExit()" class="px-3 py-1 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold cursor-pointer">Sortir quand même</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ZONE PRINCIPALE : GUICHET À GAUCHE + ASCENSEUR ART DÉCO FIXE À DROITE -->
+    <div class="flex-1 flex relative overflow-hidden">
+
+      <!-- SCÈNE DU GUICHET & PNJ (Espace principal à gauche de l'ascenseur) -->
+      <div id="floor-backdrop" class="flex-1 relative flex flex-col justify-between p-3 sm:p-6 floor-theme-1 transition-all duration-500 overflow-y-auto">
+        <!-- Canvas d'ambiance de l'étage (fumée, poussière dorée ou pluie nocturne) -->
+        <canvas id="floor-ambient-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+        <!-- Portes métalliques d'ascenseur animées lors du changement d'étage -->
+        <div id="elevator-doors-overlay" class="pointer-events-none fixed inset-y-0 left-0 right-[84px] sm:right-36 z-40 flex overflow-hidden">
+          <div class="elevator-door-left w-1/2 h-full flex items-center justify-end pr-3">
+            <div class="w-3 h-24 rounded-full border border-amber-500/50 bg-amber-500/10"></div>
+          </div>
+          <div class="elevator-door-right w-1/2 h-full flex items-center justify-start pl-3">
+            <div class="w-3 h-24 rounded-full border border-amber-500/50 bg-amber-500/10"></div>
+          </div>
+        </div>
+
+        <!-- Haut de scène : Plaque décorative de l'étage -->
+        <div class="relative z-10 flex justify-center">
+          <div class="px-5 py-1.5 rounded-full bg-black/75 border border-amber-500/40 backdrop-blur-sm text-center shadow-lg">
+            <span id="stage-floor-subtitle" class="font-deco text-[11px] sm:text-xs tracking-[0.22em] text-amber-300 uppercase">
+              ÉTAGE I • LE SOUS-SOL DE SAL « LE BORGNE »
+            </span>
+          </div>
+        </div>
+
+        <!-- Centre de scène : Portrait SVG du PNJ Croupier + Bulle Visual Novel -->
+        <div class="relative z-10 my-auto py-2 flex flex-col items-center justify-center">
+          <!-- Illustration SVG du PNJ de l'étage -->
+          <div id="npc-portrait-container" class="w-44 h-44 sm:w-56 sm:h-56 flex items-end justify-center drop-shadow-[0_14px_24px_rgba(0,0,0,0.9)]">
+            <!-- Injecté dynamiquement par FloorManager -->
+          </div>
+
+          <!-- Boîte de dialogue Visual Novel avec effet machine à écrire -->
+          <div class="w-full max-w-2xl -mt-3 deco-frame rounded-2xl bg-stone-950/95 backdrop-blur-md p-3.5 sm:p-4 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-amber-500/20 pb-1.5 mb-2">
+              <div class="flex items-center gap-2">
+                <span id="npc-name-badge" class="font-deco font-bold text-xs sm:text-sm text-amber-300">SAL « LE BORGNE »</span>
+                <span id="npc-role-badge" class="text-[10px] px-2 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-200/90">Bookmaker du Sous-Sol</span>
+              </div>
+              <span class="text-[10px] text-amber-400/70 animate-pulse">● EN DIRECT</span>
+            </div>
+            <p id="npc-dialogue-text" class="font-noir italic text-xs sm:text-base text-stone-200 min-h-[42px] leading-relaxed">
+              « Pose tes billets sur le comptoir, l'ami... »
+            </p>
+          </div>
+        </div>
+
+        <!-- Bas de scène : LE COMPTOIR EN ACAJOU & LAITON (GUICHET DES 2 JEUX) -->
+        <div class="relative z-10 mahogany-counter rounded-2xl p-3.5 sm:p-5 max-w-3xl w-full mx-auto">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-deco text-[11px] sm:text-xs tracking-[0.2em] text-amber-300/90 uppercase">
+              ✦ Tables Disponibles à cet Étage
+            </span>
+            <span class="text-[11px] text-stone-400 hidden sm:inline">Cliquez sur une table pour jouer</span>
+          </div>
+
+          <div id="counter-games-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <!-- Les 2 stands de jeux de l'étage sont injectés ici -->
+          </div>
+        </div>
+      </div>
+
+      <!-- =================================================================== -->
+      <!-- PANNEAU D'ASCENSEUR ART DÉCO FIXE SUR LE CÔTÉ DROIT                 -->
+      <!-- =================================================================== -->
+      <aside aria-label="Ascenseur Art Déco" class="brass-panel w-[84px] sm:w-36 shrink-0 z-30 flex flex-col justify-between items-center py-3 sm:py-5 px-1.5 sm:px-3">
+
+        <!-- Cadran indicateur d'étage à aiguille animée -->
+        <div class="w-full flex flex-col items-center">
+          <span class="font-deco text-[9px] sm:text-[11px] tracking-widest text-amber-300/90 uppercase mb-1.5 text-center">Ascenseur</span>
+
+          <div class="relative w-16 h-12 sm:w-28 sm:h-16 rounded-t-full bg-gradient-to-b from-stone-900 to-black border-2 border-amber-400 shadow-inner flex items-end justify-center overflow-hidden">
+            <!-- Repères 1, 2, 3, 4 -->
+            <span class="absolute left-1.5 bottom-1 text-[9px] sm:text-[11px] font-deco font-bold text-amber-400">1</span>
+            <span class="absolute left-4 sm:left-7 top-1.5 text-[9px] sm:text-[11px] font-deco font-bold text-amber-400">2</span>
+            <span class="absolute right-4 sm:right-7 top-1.5 text-[9px] sm:text-[11px] font-deco font-bold text-amber-400">3</span>
+            <span class="absolute right-1.5 bottom-1 text-[9px] sm:text-[11px] font-deco font-bold text-amber-400">4</span>
+
+            <!-- Aiguille en laiton animée -->
+            <div id="elevator-dial-needle" style="transform: rotate(-55deg); transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);" class="w-1 h-8 sm:h-11 bg-gradient-to-t from-red-600 to-amber-300 rounded-full origin-bottom mb-0.5 shadow"></div>
+            <div class="absolute bottom-0 w-3 h-3 rounded-full bg-amber-400 border border-black"></div>
+          </div>
+
+          <div class="w-full py-1 bg-black/80 border-x border-b border-amber-500/40 rounded-b-lg text-center">
+            <span id="elevator-digital-floor" class="font-deco font-black text-[10px] sm:text-xs text-amber-300">ÉTAGE 1</span>
+          </div>
+        </div>
+
+        <!-- Boutons d'étages (4 en haut -> 1 en bas) -->
+        <div class="w-full flex flex-col gap-2.5 sm:gap-3 my-auto py-2">
+          <!-- Étage 4 -->
+          <button id="elev-btn-4" onclick="Game.requestFloorChange(4)" class="w-full p-2 sm:p-2.5 rounded-2xl border-2 transition cursor-pointer flex flex-col items-center justify-center gap-0.5">
+            <span class="font-deco font-black text-sm sm:text-lg leading-none">IV</span>
+            <span id="elev-sub-4" class="text-[9px] sm:text-[10px] font-bold tracking-tight">🔒 Jour 7</span>
+          </button>
+
+          <!-- Étage 3 -->
+          <button id="elev-btn-3" onclick="Game.requestFloorChange(3)" class="w-full p-2 sm:p-2.5 rounded-2xl border-2 transition cursor-pointer flex flex-col items-center justify-center gap-0.5">
+            <span class="font-deco font-black text-sm sm:text-lg leading-none">III</span>
+            <span id="elev-sub-3" class="text-[9px] sm:text-[10px] font-bold tracking-tight">🔒 Jour 5</span>
+          </button>
+
+          <!-- Étage 2 -->
+          <button id="elev-btn-2" onclick="Game.requestFloorChange(2)" class="w-full p-2 sm:p-2.5 rounded-2xl border-2 transition cursor-pointer flex flex-col items-center justify-center gap-0.5">
+            <span class="font-deco font-black text-sm sm:text-lg leading-none">II</span>
+            <span id="elev-sub-2" class="text-[9px] sm:text-[10px] font-bold tracking-tight">🔒 Jour 3</span>
+          </button>
+
+          <!-- Étage 1 -->
+          <button id="elev-btn-1" onclick="Game.requestFloorChange(1)" class="w-full p-2 sm:p-2.5 rounded-2xl border-2 transition cursor-pointer flex flex-col items-center justify-center gap-0.5">
+            <span class="font-deco font-black text-sm sm:text-lg leading-none">I</span>
+            <span id="elev-sub-1" class="text-[9px] sm:text-[10px] font-bold tracking-tight">Sous-Sol</span>
+          </button>
+        </div>
+
+        <!-- Plaque laiton inférieure -->
+        <div class="w-full text-center border-t border-amber-500/25 pt-2">
+          <span class="font-deco text-[8px] sm:text-[10px] text-amber-400/70 tracking-widest block">OTIS 1929</span>
+          <span class="text-[8px] sm:text-[9px] text-stone-400 block">Syndicat</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 3. MODALE DÉDIÉE AU MINI-JEU ACTIF (AVEC BOUTON QUITTER LA TABLE)     -->
+  <!-- ===================================================================== -->
+  <div id="game-table-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-5">
+    <div class="deco-frame modal-animate rounded-3xl bg-stone-950/95 max-w-3xl w-full max-h-[94vh] flex flex-col overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.95)]">
+
+      <!-- En-tête de la table avec bouton bien visible "← Quitter la table" -->
+      <div class="bg-gradient-to-r from-stone-900 via-amber-950/40 to-stone-900 border-b border-amber-500/35 px-4 py-3 flex flex-wrap items-center justify-between gap-2">
+        <button onclick="Game.closeGameModal()" class="px-3.5 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 border border-amber-400/50 text-amber-200 font-bold text-xs sm:text-sm transition cursor-pointer flex items-center gap-1.5 shadow">
+          <span>← Quitter la table</span>
+        </button>
+
+        <div class="text-center">
+          <h3 id="modal-game-title" class="font-deco font-bold text-sm sm:text-lg text-amber-300">TABLE DE JEU</h3>
+        </div>
+
+        <!-- Mini rappel Solde & Chrono dans la modale -->
+        <div class="flex items-center gap-2.5 text-xs font-mono-num">
+          <span class="px-2.5 py-1 rounded-lg bg-black/80 border border-emerald-500/40 text-emerald-400 font-bold" id="modal-hud-balance">100 €</span>
+          <span class="px-2.5 py-1 rounded-lg bg-black/80 border border-amber-500/40 text-amber-300 font-bold" id="modal-hud-target">Obj: 250 €</span>
+          <span class="px-2.5 py-1 rounded-lg bg-black/80 border border-stone-700 text-stone-200 font-bold" id="modal-hud-timer">01:30</span>
+        </div>
+      </div>
+
+      <!-- Corps défilable : Scène du mini-jeu + Pupitre de mise rapide -->
+      <div class="p-4 sm:p-6 overflow-y-auto space-y-5 flex-1">
+        <!-- Contenu spécifique du jeu -->
+        <div id="modal-game-stage"></div>
+
+        <!-- Pupitre de Mise Universel intégré à la table -->
+        <div class="p-3.5 sm:p-4 rounded-2xl bg-black/75 border border-amber-500/30 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="font-deco text-xs font-bold text-amber-300 uppercase tracking-wider">💰 Mise sur la Table</span>
+            <span id="modal-gap-info" class="text-xs text-stone-400">Écart objectif : <strong class="font-mono-num text-amber-300">150 €</strong></span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-center">
+            <!-- Champ de mise +/- -->
+            <div class="sm:col-span-5 flex items-center gap-1.5">
+              <button onclick="BetController.adjust(-10)" class="px-3 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 font-mono-num font-bold text-xs cursor-pointer">-10</button>
+              <div class="relative flex-1">
+                <input id="bet-input" type="number" min="1" step="1" value="20" oninput="BetController.onManualInput()" class="w-full bg-stone-950 border border-amber-500/50 rounded-xl py-2 px-3 font-mono-num font-extrabold text-base text-amber-300 text-center focus:outline-none focus:border-amber-300" />
+                <span class="absolute right-3 top-1/2 -translate-y-1/2 text-amber-400/70 font-bold text-xs">€</span>
+              </div>
+              <button onclick="BetController.adjust(10)" class="px-3 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 font-mono-num font-bold text-xs cursor-pointer">+10</button>
+            </div>
+
+            <!-- Boutons rapides -->
+            <div class="sm:col-span-7 grid grid-cols-5 gap-1.5">
+              <button onclick="BetController.setPercent(0.10)" class="py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 text-xs font-bold text-stone-200 cursor-pointer">10%</button>
+              <button onclick="BetController.setPercent(0.25)" class="py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 text-xs font-bold text-stone-200 cursor-pointer">25%</button>
+              <button onclick="BetController.setPercent(0.50)" class="py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 text-xs font-bold text-stone-200 cursor-pointer">50%</button>
+              <button onclick="BetController.setAllIn()" class="py-2.5 rounded-xl bg-red-950 hover:bg-red-900 border border-red-500/50 text-xs font-extrabold text-red-200 cursor-pointer">ALL-IN</button>
+              <button id="btn-fill-gap" onclick="BetController.fillGap()" class="py-2.5 px-1 rounded-xl bg-amber-950 hover:bg-amber-900 border border-amber-400/60 text-[11px] font-extrabold text-amber-200 cursor-pointer truncate" title="Miser exactement ce qu'il manque pour l'objectif">
+                🎯 Écart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 4. ÉCRAN DE SURVIE FIN DE JOURNÉE                                     -->
+  <!-- ===================================================================== -->
+  <section id="screen-day-complete" class="hidden fixed inset-0 z-[70] bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="deco-frame modal-animate rounded-3xl bg-stone-950 max-w-lg w-full p-6 sm:p-8 text-center space-y-5">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950 border border-emerald-400/50 text-emerald-300 text-xs font-bold uppercase tracking-widest">
+        ✓ DETTE DU JOUR HONORÉE
+      </div>
+
+      <h2 id="day-complete-title" class="font-deco text-3xl sm:text-4xl font-black text-amber-300">
+        JOUR 1 SURVÉCU
+      </h2>
+
+      <p id="day-complete-quote" class="font-noir italic text-sm sm:text-base text-stone-300">
+        « Tu sais compter, l'ami. Mes hommes te laissent passer la nuit... mais demain, l'addition grimpe. »
+      </p>
+
+      <!-- Bannière de déblocage d'étage d'ascenseur -->
+      <div id="day-unlock-banner" class="hidden p-4 rounded-2xl bg-gradient-to-r from-amber-950 via-amber-800/40 to-amber-950 border border-amber-400 text-amber-100 space-y-1">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-amber-300 block">🔓 NOUVEL ÉTAGE D'ASCENSEUR DÉBLOQUÉ !</span>
+        <span id="day-unlock-name" class="font-deco text-lg font-bold text-white block">Étage II — Salon Velours</span>
+        <span id="day-unlock-games" class="text-xs text-amber-200 block">Blackjack du Parrain & Roulette Européenne</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 text-left">
+        <div class="p-3.5 rounded-2xl bg-black/70 border border-stone-800">
+          <span class="text-xs text-stone-400 block">Solde conservé</span>
+          <span id="summary-kept-balance" class="font-mono-num font-extrabold text-xl text-emerald-400">250 €</span>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-black/70 border border-stone-800">
+          <span class="text-xs text-stone-400 block">Objectif franchi</span>
+          <span id="summary-cleared-target" class="font-mono-num font-extrabold text-xl text-stone-200">250 €</span>
+        </div>
+        <div class="col-span-2 p-4 rounded-2xl bg-amber-950/30 border border-amber-500/40 flex items-center justify-between">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-amber-300 block">Prochain Contrat (<span id="summary-next-day">Jour 2</span>)</span>
+            <span class="text-xs text-stone-400">Votre solde actuel est intégralement conservé</span>
+          </div>
+          <span id="summary-next-target" class="font-mono-num font-black text-2xl text-amber-400">600 €</span>
+        </div>
+      </div>
+
+      <button onclick="Game.startNextDay()" class="btn-brass w-full py-4 rounded-2xl text-base sm:text-lg tracking-wider cursor-pointer">
+        PASSER AU JOUR SUIVANT ➔
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 5. ÉCRAN D'EXÉCUTION (GAME OVER & RESET À 0)                          -->
+  <!-- ===================================================================== -->
+  <section id="screen-execution" class="hidden fixed inset-0 z-[80] bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="modal-animate bg-gradient-to-b from-red-950/90 via-stone-950 to-black border-2 border-red-600/80 shadow-[0_0_70px_rgba(220,38,38,0.5)] rounded-3xl max-w-lg w-full p-6 sm:p-8 text-center space-y-5">
+      <div class="w-16 h-16 mx-auto rounded-full bg-red-950 border-2 border-red-500 flex items-center justify-center text-3xl shadow-lg">
+        💀
+      </div>
+
+      <div>
+        <span class="text-xs uppercase tracking-[0.3em] text-red-400 font-bold">SENTENCE DU SYNDICAT</span>
+        <h2 class="font-deco text-4xl sm:text-5xl font-black text-red-500 tracking-wider mt-1">
+          EXÉCUTÉ
+        </h2>
+      </div>
+
+      <p id="exec-reason" class="text-xs sm:text-sm font-semibold text-red-100 bg-red-950/70 border border-red-500/40 rounded-xl py-2.5 px-4">
+        Le chronomètre a expiré avant que votre dette ne soit réglée.
+      </p>
+
+      <p id="exec-quote" class="font-noir italic text-sm text-stone-300">
+        « Dans ma maison, on paie en billets ou en sang. Nettoyez-moi ce tapis. »
+      </p>
+
+      <div class="grid grid-cols-3 gap-2.5 text-center">
+        <div class="p-3 rounded-2xl bg-black/75 border border-stone-800">
+          <span class="text-[11px] text-stone-400 block">Jour atteint</span>
+          <span id="exec-day" class="font-deco font-bold text-lg text-amber-400">Jour 1</span>
+        </div>
+        <div class="p-3 rounded-2xl bg-black/75 border border-stone-800">
+          <span class="text-[11px] text-stone-400 block">Solde max</span>
+          <span id="exec-maxbal" class="font-mono-num font-bold text-base text-emerald-400">100 €</span>
+        </div>
+        <div class="p-3 rounded-2xl bg-black/75 border border-stone-800">
+          <span class="text-[11px] text-stone-400 block">Solde final</span>
+          <span class="font-mono-num font-bold text-base text-red-500">0 €</span>
+        </div>
+      </div>
+
+      <div id="exec-record-banner" class="hidden py-2 px-4 rounded-xl bg-amber-500/20 border border-amber-400 text-amber-300 text-xs font-extrabold uppercase tracking-wider">
+        🏆 NOUVEAU RECORD ARCHIVÉ !
+      </div>
+
+      <button onclick="Game.returnToHome()" class="btn-crimson-deco w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer">
+        RETOUR À L'ACCUEIL (0 €)
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- MODALE : RÈGLES & PALIERS                                             -->
+  <!-- ===================================================================== -->
+  <div id="modal-rules" class="hidden fixed inset-0 z-[90] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="deco-frame modal-animate rounded-3xl bg-stone-950 max-w-2xl w-full max-h-[88vh] overflow-y-auto p-6 space-y-5">
+      <div class="flex items-center justify-between border-b border-amber-500/25 pb-3">
+        <h3 class="font-deco text-xl font-bold text-amber-300">📜 LE CODE DU SYNDICAT</h3>
+        <button onclick="UI.closeModal('modal-rules')" class="w-9 h-9 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-300 font-bold cursor-pointer">✕</button>
+      </div>
+
+      <div class="space-y-3 text-xs sm:text-sm text-stone-300 leading-relaxed">
+        <p><strong class="text-amber-300">1. Le Contrat :</strong> Vous démarrez le <strong>Jour 1 avec 100 €</strong> et disposez de <strong>90 secondes</strong> par jour pour atteindre la somme exigée par le Parrain.</p>
+        <p><strong class="text-emerald-400">2. Quitter le Casino :</strong> Dès que votre solde atteint l'objectif, le bouton <em>« QUITTER »</em> en haut s'illumine. Cliquez dessus pour survivre, conserver l'intégralité de votre solde et passer au jour suivant.</p>
+        <p><strong class="text-amber-300">3. L'Ascenseur Art Déco :</strong> Utilisez le panneau d'ascenseur à droite pour changer d'étage et rencontrer de nouveaux croupiers PNJ aux paliers <strong>Jour 1, Jour 3, Jour 5 et Jour 7</strong>.</p>
+        <p><strong class="text-red-400">4. L'Exécution :</strong> Sortir sans la somme, manquer de temps ou tomber à 0 € entraîne votre exécution et réinitialise votre partie à zéro.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono-num">
+        <div class="p-2.5 rounded-xl bg-black/70 border border-stone-800">Jour 1 : <strong class="text-amber-300">250 €</strong></div>
+        <div class="p-2.5 rounded-xl bg-black/70 border border-stone-800">Jour 2 : <strong class="text-amber-300">600 €</strong></div>
+        <div class="p-2.5 rounded-xl bg-black/70 border border-stone-800">Jour 3 : <strong class="text-amber-300">1 400 €</strong></div>
+        <div class="p-2.5 rounded-xl bg-black/70 border border-stone-800">Jour 4 : <strong class="text-amber-300">3 200 €</strong></div>
+        <div class="p-2.5 rounded-xl bg-black/70 border border-stone-800">Jour 5 : <strong class="text-amber-300">7 500 €</strong></div>
+        <div class="p-2.5 rounded-xl bg-black/70 border border-stone-800">Jour 6 : <strong class="text-amber-300">16 000 €</strong></div>
+        <div class="p-2.5 rounded-xl bg-black/70 border border-stone-800">Jour 7 : <strong class="text-amber-300">35 000 €</strong></div>
+        <div class="p-2.5 rounded-xl bg-black/70 border border-stone-800">Jour 8+ : <strong class="text-amber-300">×2.2 / j</strong></div>
+      </div>
+
+      <button onclick="UI.closeModal('modal-rules')" class="btn-brass w-full py-3 rounded-xl text-sm cursor-pointer">COMPRIS</button>
+    </div>
+  </div>
+
+  <script>
+    /* ========================================================================
+       1. MOTEUR AUDIO SYNTHÉTISÉ (WEB AUDIO API) - SANS FICHIERS EXTERNES
+       ======================================================================== */
+    const AudioEngine = (() => {
+      let ctx = null;
+      let muted = false;
+
+      function ensureCtx() {
+        if (!ctx) {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          if (AudioCtx) ctx = new AudioCtx();
+        }
+        if (ctx && ctx.state === 'suspended') {
+          ctx.resume().catch(() => {});
+        }
+      }
+
+      function tone(freq, type = 'sine', duration = 0.12, vol = 0.12, slideTo = null) {
+        if (muted) return;
+        ensureCtx();
+        if (!ctx) return;
+        try {
+          const now = ctx.currentTime;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, now);
+          if (slideTo) {
+            osc.frequency.exponentialRampToValueAtTime(Math.max(20, slideTo), now + duration);
+          }
+          gain.gain.setValueAtTime(vol, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + duration);
+        } catch (e) {}
+      }
+
+      function noise(duration = 0.4, vol = 0.35) {
+        if (muted) return;
+        ensureCtx();
+        if (!ctx) return;
+        try {
+          const size = ctx.sampleRate * duration;
+          const buf = ctx.createBuffer(1, size, ctx.sampleRate);
+          const data = buf.getChannelData(0);
+          for (let i = 0; i < size; i++) {
+            data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * duration * 0.25));
+          }
+          const src = ctx.createBufferSource();
+          src.buffer = buf;
+          const filter = ctx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(1400, ctx.currentTime);
+          filter.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + duration);
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(vol, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+          src.connect(filter);
+          filter.connect(gain);
+          gain.connect(ctx.destination);
+          src.start();
+        } catch (e) {}
+      }
+
+      return {
+        toggleMute() {
+          muted = !muted;
+          const icon = muted ? '🔇' : '🔊';
+          ['mute-btn-home', 'mute-btn-game'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = icon;
+          });
+          if (!muted) this.chip();
+        },
+        chip() { tone(920, 'triangle', 0.06, 0.08, 1280); },
+        card() { tone(440, 'sine', 0.07, 0.09, 700); },
+        tick() { tone(310, 'square', 0.03, 0.035, 220); },
+        typeTick() { tone(680, 'sine', 0.018, 0.018, 520); },
+        locked() {
+          tone(160, 'sawtooth', 0.09, 0.14, 120);
+          setTimeout(() => tone(140, 'sawtooth', 0.11, 0.14, 95), 90);
+        },
+        elevatorDoor() {
+          tone(110, 'sawtooth', 0.35, 0.07, 75);
+        },
+        elevatorDing() {
+          tone(1046.5, 'sine', 0.65, 0.18);
+          setTimeout(() => tone(1567.98, 'sine', 0.55, 0.08), 40);
+        },
+        win(big = false) {
+          tone(523.25, 'triangle', 0.14, 0.13);
+          setTimeout(() => tone(659.25, 'triangle', 0.14, 0.13), 80);
+          setTimeout(() => tone(783.99, 'triangle', 0.22, 0.15), 160);
+          if (big) setTimeout(() => tone(1046.5, 'triangle', 0.35, 0.18), 250);
+        },
+        lose() { tone(210, 'sawtooth', 0.24, 0.11, 105); },
+        urgent() { tone(880, 'sine', 0.05, 0.06, 660); },
+        crashRise(m) { tone(Math.min(1150, 190 + m * 60), 'sawtooth', 0.08, 0.04); },
+        explosion() {
+          noise(0.55, 0.42);
+          tone(105, 'sawtooth', 0.45, 0.25, 30);
+        },
+        gunshot() {
+          noise(0.7, 0.58);
+          tone(145, 'sawtooth', 0.45, 0.35, 26);
+        }
+      };
+    })();
+
+    /* ========================================================================
+       2. CONFIGURATION DES 4 ÉTAGES, PNJ SVG & RÉPLIQUES
+       ======================================================================== */
+    const FLOORS_DATA = {
+      1: {
+        id: 1,
+        roman: 'I',
+        shortName: 'Sous-Sol',
+        title: 'Sous-Sol Clandestin',
+        subtitle: 'ÉTAGE I • LE SOUS-SOL DE SAL « LE BORGNE »',
+        unlockDay: 1,
+        themeClass: 'floor-theme-1',
+        needleAngle: -55,
+        npc: {
+          name: 'SAL « LE BORGNE »',
+          role: 'Bookmaker du Sous-Sol',
+          greetings: [
+            "« Bienvenue au sous-sol, bleu. Ici, ça sent la brique humide, la sueur et les billets froissés. Choisis ta table. »",
+            "« Le Parrain veut ses 250 € ce soir. Mes machines sont chaudes, ne traîne pas. »"
+          ],
+          winLines: [
+            "« Pas mal pour un débutant ! Continue avant que la chance tourne. »",
+            "« Joli coup ! Le sous-sol te porte bonheur, dirait-on. »"
+          ],
+          loseLines: [
+            "« Aïe... La maison reprend toujours sa part. Refais-toi vite ! »",
+            "« Tu transpires déjà ? On n'est qu'au premier étage, l'ami. »"
+          ],
+          targetLines: [
+            "« T'as le compte ! Tu peux filer par la porte de service... ou tenter le gros lot. »"
+          ],
+          lockedLines: [
+            "« Pas si vite ! L'ascenseur refuse de monter tant que t'as pas survécu assez de jours. »"
+          ],
+          svg: `
+            <svg viewBox="0 0 200 190" class="w-full h-full npc-breathe">
+              <!-- Torse & Bretelles -->
+              <path d="M35 190 C40 135, 65 125, 100 125 C135 125, 160 135, 165 190 Z" fill="#e7e5e4"/>
+              <path d="M72 127 L66 190 M128 127 L134 190" stroke="#78350f" stroke-width="8"/>
+              <polygon points="100,126 93,165 100,174 107,165" fill="#065f46"/>
+              <!-- Cou & Tête -->
+              <rect x="88" y="102" width="24" height="26" rx="8" fill="#d6a37c"/>
+              <path d="M68 65 C68 38, 132 38, 132 65 C132 98, 120 114, 100 114 C80 114, 68 98, 68 65 Z" fill="#e0b08a"/>
+              <!-- Cache-œil & Œil valide -->
+              <path d="M70 67 L130 75" stroke="#1c1917" stroke-width="3.5"/>
+              <ellipse cx="86" cy="70" rx="10" ry="8" fill="#1c1917"/>
+              <g class="npc-eye">
+                <ellipse cx="114" cy="72" rx="4.5" ry="3" fill="#1c1917"/>
+                <circle cx="115" cy="71.5" r="1" fill="#fff"/>
+              </g>
+              <!-- Sourire narquois & Moustache -->
+              <path d="M88 94 Q100 99 114 91" stroke="#292524" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <!-- Visière verte de croupier -->
+              <path d="M64 52 C68 32, 132 32, 136 52 Z" fill="#292524"/>
+              <path d="M62 52 Q100 66 138 52 Q100 58 62 52 Z" fill="#10b981" opacity="0.85"/>
+              <!-- Main avec jetons -->
+              <g class="npc-gesture">
+                <circle cx="152" cy="162" r="13" fill="#e0b08a"/>
+                <ellipse cx="152" cy="148" rx="11" ry="4" fill="#d4af37" stroke="#78350f"/>
+                <ellipse cx="152" cy="143" rx="11" ry="4" fill="#dc2626" stroke="#450a0a"/>
+              </g>
+              <!-- Cigare -->
+              <rect x="108" y="92" width="26" height="5" rx="2" transform="rotate(10 108 92)" fill="#78350f"/>
+              <circle cx="134" cy="97" r="2.5" fill="#f97316"/>
+              <circle cx="138" cy="86" r="5" fill="#d6d3d1" class="smoke-puff-1"/>
+              <circle cx="143" cy="74" r="7" fill="#a8a29e" class="smoke-puff-2"/>
+            </svg>
+          `
+        },
+        games: [
+          {
+            id: 'slots',
+            name: 'Machine à Sous « La Mamma »',
+            icon: '🎰',
+            badge: 'Jusqu’à ×25',
+            desc: '3 rouleaux mécaniques • Alignez les 777 du Syndicat.'
+          },
+          {
+            id: 'coinflip',
+            name: 'Pile ou Face Truqué',
+            icon: '🪙',
+            badge: 'Gain ×1.95',
+            desc: 'Pièce d’or 3D • Couronne ou Crâne, doublez vite.'
+          }
+        ]
+      },
+      2: {
+        id: 2,
+        roman: 'II',
+        shortName: 'Velours',
+        title: 'Salon Velours Rouge',
+        subtitle: 'ÉTAGE II • LE SALON FEUTRÉ DE VESPERA',
+        unlockDay: 3,
+        themeClass: 'floor-theme-2',
+        needleAngle: -18,
+        npc: {
+          name: 'VESPERA VANCE',
+          role: 'Croupière du Salon Rouge',
+          greetings: [
+            "« Te voilà au deuxième étage, beau joueur. Ici, les cartes glissent sur le velours... et coupent comme des rasoirs. »",
+            "« Blackjack ou Roulette ? Choisis ton poison, le sablier du Parrain ne fait aucun cadeau. »"
+          ],
+          winLines: [
+            "« Quelle élégance... Tu viens de soulager la banque du Syndicat. »",
+            "« Magnifique ! Continue comme ça et tu vas finir par m'impressionner. »"
+          ],
+          loseLines: [
+            "« Oh, quel dommage... La bille et les cartes ont parfois le cœur cruel. »",
+            "« Le velours rouge absorbe très bien les regrets, tu sais. »"
+          ],
+          targetLines: [
+            "« La dette du jour est couverte. Partiras-tu en gentleman ou resteras-tu pour moi ? »"
+          ],
+          lockedLines: [
+            "« Doucement, chéri. Les étages supérieurs exigent d'avoir prouvé ta valeur. »"
+          ],
+          svg: `
+            <svg viewBox="0 0 200 190" class="w-full h-full npc-breathe">
+              <!-- Robe de soirée Art Déco -->
+              <path d="M42 190 C48 135, 70 124, 100 124 C130 124, 152 135, 158 190 Z" fill="#881337" stroke="#f6dc7a" stroke-width="1.5"/>
+              <path d="M76 125 L100 162 L124 125" fill="#e5b899"/>
+              <!-- Collier de perles -->
+              <path d="M78 128 Q100 144 122 128" stroke="#fef3c7" stroke-width="3.5" stroke-dasharray="2 4" fill="none"/>
+              <!-- Cou & Visage -->
+              <rect x="90" y="100" width="20" height="26" rx="8" fill="#e5b899"/>
+              <path d="M71 64 C71 38, 129 38, 129 64 C129 94, 117 110, 100 110 C83 110, 71 94, 71 64 Z" fill="#f0c7ab"/>
+              <!-- Coiffure crantée années 20 + Bandeau plume -->
+              <path d="M66 66 C64 34, 136 34, 134 66 C130 48, 70 48, 66 66 Z" fill="#1c1917"/>
+              <rect x="69" y="47" width="62" height="4" rx="2" fill="#d4af37"/>
+              <path d="M126 47 Q142 22 132 14 Q122 26 124 47 Z" fill="#f43f5e"/>
+              <!-- Yeux qui clignent -->
+              <g class="npc-eye">
+                <ellipse cx="87" cy="69" rx="4.5" ry="2.8" fill="#1c1917"/>
+                <ellipse cx="113" cy="69" rx="4.5" ry="2.8" fill="#1c1917"/>
+                <circle cx="88" cy="68.5" r="1" fill="#fff"/>
+                <circle cx="114" cy="68.5" r="1" fill="#fff"/>
+              </g>
+              <!-- Lèvres carmin -->
+              <path d="M91 91 Q100 96 109 91 Q100 88 91 91 Z" fill="#be123c"/>
+              <!-- Porte-cigarette & Fumée -->
+              <g class="npc-gesture">
+                <line x1="108" y1="92" x2="148" y2="82" stroke="#1c1917" stroke-width="2.5"/>
+                <rect x="148" y="80.5" width="10" height="3" transform="rotate(-14 148 80.5)" fill="#f5f5f4"/>
+                <circle cx="158" cy="79" r="2" fill="#fb7185"/>
+                <circle cx="160" cy="68" r="4.5" fill="#e7e5e4" class="smoke-puff-1"/>
+                <circle cx="164" cy="56" r="6" fill="#d6d3d1" class="smoke-puff-2"/>
+              </g>
+            </svg>
+          `
+        },
+        games: [
+          {
+            id: 'blackjack',
+            name: 'Blackjack du Parrain',
+            icon: '🃏',
+            badge: 'Blackjack ×2.5',
+            desc: 'Tirer, Rester ou Doubler • Battez la main du salon.'
+          },
+          {
+            id: 'roulette',
+            name: 'Roulette Européenne',
+            icon: '🎡',
+            badge: 'Plein ×14',
+            desc: 'Roue animée en direct • Couleurs, Douzaines ou Zéro.'
+          }
+        ]
+      },
+      3: {
+        id: 3,
+        roman: 'III',
+        shortName: 'Art Déco',
+        title: 'Salle Art Déco Bleu Nuit',
+        subtitle: 'ÉTAGE III • LE CLUB PRIVÉ DU BANQUIER CASSIAN',
+        unlockDay: 5,
+        themeClass: 'floor-theme-3',
+        needleAngle: 18,
+        npc: {
+          name: 'CASSIAN « LE BANQUIER »',
+          role: 'Maître des Risques',
+          greetings: [
+            "« Cinq jours de survie... Impressionnant. Ici, nous ne jouons plus avec des pièces, mais avec le destin. »",
+            "« Saute de la voiture avant l'embuscade ou lance les dés de la pègre. Le temps presse. »"
+          ],
+          winLines: [
+            "« Calcul impeccable. Tu as des nerfs d'acier, mon garçon. »",
+            "« Les chiffres te donnent raison... pour cette fois. »"
+          ],
+          loseLines: [
+            "« Trop gourmand. Dans ce club, l'hésitation coûte une fortune. »",
+            "« Les probabilités sont implacables, tout comme nos hommes de main. »"
+          ],
+          targetLines: [
+            "« Objectif atteint. Tu peux descendre et quitter le bâtiment la tête haute. »"
+          ],
+          lockedLines: [
+            "« L'accès à l'étage supérieur est réservé aux survivants du Jour 7. »"
+          ],
+          svg: `
+            <svg viewBox="0 0 200 190" class="w-full h-full npc-breathe">
+              <!-- Smoking bleu nuit & Or -->
+              <path d="M36 190 C42 134, 66 124, 100 124 C134 124, 158 134, 164 190 Z" fill="#0f172a" stroke="#d4af37" stroke-width="1.5"/>
+              <polygon points="100,125 82,190 118,190" fill="#f8fafc"/>
+              <polygon points="90,130 100,135 90,140" fill="#d4af37"/>
+              <polygon points="110,130 100,135 110,140" fill="#d4af37"/>
+              <!-- Cou & Tête -->
+              <rect x="89" y="100" width="22" height="26" rx="7" fill="#d6a37c"/>
+              <path d="M70 62 C70 36, 130 36, 130 62 C130 95, 118 112, 100 112 C82 112, 70 95, 70 62 Z" fill="#e2b492"/>
+              <!-- Cheveux gominés -->
+              <path d="M69 58 C69 32, 131 32, 131 58 C124 44, 76 44, 69 58 Z" fill="#09090b"/>
+              <!-- Yeux + Monocle doré -->
+              <g class="npc-eye">
+                <ellipse cx="86" cy="68" rx="4" ry="2.6" fill="#09090b"/>
+                <ellipse cx="114" cy="68" rx="4" ry="2.6" fill="#09090b"/>
+              </g>
+              <circle cx="114" cy="68" r="9.5" fill="none" stroke="#f6dc7a" stroke-width="2"/>
+              <path d="M123 71 Q132 95 124 125" stroke="#f6dc7a" stroke-width="1.2" fill="none"/>
+              <!-- Bouche droite -->
+              <line x1="90" y1="92" x2="110" y2="92" stroke="#292524" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Montre à gousset animée -->
+              <g class="npc-gesture">
+                <circle cx="58" cy="154" r="11" fill="#f6dc7a" stroke="#78350f" stroke-width="2"/>
+                <line x1="58" y1="154" x2="58" y2="147" stroke="#1c1917" stroke-width="1.5"/>
+                <line x1="58" y1="154" x2="63" y2="154" stroke="#1c1917" stroke-width="1.5"/>
+              </g>
+            </svg>
+          `
+        },
+        games: [
+          {
+            id: 'crash',
+            name: 'Crash « La Fuite »',
+            icon: '🏎️',
+            badge: 'Multiplicateur Infini',
+            desc: 'Encaissez avant le barrage de police !'
+          },
+          {
+            id: 'dice',
+            name: 'Dés de la Pègre',
+            icon: '🎲',
+            badge: 'Double ×5.5',
+            desc: '2 dés d’ivoire • Haut, Bas, Sept Chanceux ou Double.'
+          }
+        ]
+      },
+      4: {
+        id: 4,
+        roman: 'IV',
+        shortName: 'Penthouse',
+        title: 'Penthouse Or & Pluie Nocturne',
+        subtitle: 'ÉTAGE IV • LE BUREAU PRIVÉ DE DON MORETTI',
+        unlockDay: 7,
+        themeClass: 'floor-theme-4',
+        needleAngle: 55,
+        npc: {
+          name: 'DON VITTORIO MORETTI',
+          role: 'Parrain du Syndicat',
+          greetings: [
+            "« Sept jours... Personne n'était monté jusqu'à mon bureau depuis dix ans. Jouons d'homme à homme. »",
+            "« Sous cette pluie nocturne, les lingots brillent plus fort que la dynamite. Montre-moi ton sang-froid. »"
+          ],
+          winLines: [
+            "« Magnifique ! Tu as l'étoffe d'un vrai patron, l'ami. »",
+            "« Le Syndicat s'incline devant ce coup de maître. »"
+          ],
+          loseLines: [
+            "« Même au sommet de la tour, une erreur reste fatale. »",
+            "« La pluie lave tout sur les vitres... même les fortunes. »"
+          ],
+          targetLines: [
+            "« Tu as honoré ta dette au sommet ! Prends l'ascenseur et sors vivant, tu l'as mérité. »"
+          ],
+          lockedLines: [
+            "« Tu es déjà au sommet du monde, l'ami. »"
+          ],
+          svg: `
+            <svg viewBox="0 0 200 190" class="w-full h-full npc-breathe">
+              <!-- Costume rayé or & noir -->
+              <path d="M32 190 C38 132, 64 122, 100 122 C136 122, 162 132, 168 190 Z" fill="#18181b" stroke="#f6dc7a" stroke-width="2"/>
+              <polygon points="100,123 82,190 118,190" fill="#fafaf9"/>
+              <polygon points="100,126 93,172 100,182 107,172" fill="#b91c1c"/>
+              <circle cx="132" cy="148" r="7" fill="#dc2626"/>
+              <!-- Cou & Visage -->
+              <rect x="88" y="98" width="24" height="26" rx="8" fill="#d6a37c"/>
+              <path d="M68 60 C68 34, 132 34, 132 60 C132 94, 119 112, 100 112 C81 112, 68 94, 68 60 Z" fill="#e0b08a"/>
+              <!-- Yeux perçants -->
+              <g class="npc-eye">
+                <ellipse cx="86" cy="68" rx="4.5" ry="2.6" fill="#09090b"/>
+                <ellipse cx="114" cy="68" rx="4.5" ry="2.6" fill="#09090b"/>
+              </g>
+              <path d="M77 61 L93 65 M123 61 L107 65" stroke="#1c1917" stroke-width="3" stroke-linecap="round"/>
+              <!-- Moustache & Menton -->
+              <path d="M87 88 Q100 83 113 88" stroke="#292524" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+              <!-- Fedora Noir & Ruban Or -->
+              <ellipse cx="100" cy="46" rx="58" ry="10" fill="#09090b" stroke="#f6dc7a" stroke-width="1.5"/>
+              <path d="M64 46 C67 18, 133 18, 136 46 Z" fill="#1c1917"/>
+              <rect x="65" y="40" width="70" height="5" fill="#d4af37"/>
+              <!-- Cigare & Fumée -->
+              <rect x="110" y="92" width="28" height="5.5" rx="2" transform="rotate(12 110 92)" fill="#78350f"/>
+              <circle cx="138" cy="98" r="2.8" fill="#ef4444"/>
+              <circle cx="142" cy="86" r="5" fill="#e7e5e4" class="smoke-puff-1"/>
+              <circle cx="147" cy="72" r="7.5" fill="#a8a29e" class="smoke-puff-2"/>
+            </svg>
+          `
+        },
+        games: [
+          {
+            id: 'mines',
+            name: 'Mines du Syndicat',
+            icon: '🧨',
+            badge: 'Grille 5×5 VIP',
+            desc: 'Lingots d’or vs Dynamite • Encaissez à tout moment.'
+          },
+          {
+            id: 'hilow',
+            name: 'High-Low VIP',
+            icon: '📈',
+            badge: 'Série Cumulative',
+            desc: 'Plus Haut ou Plus Bas • Enchaînez les cartes.'
+          }
+        ]
+      }
+    };
+
+    const TARGETS_BY_DAY = {
+      1: 250,
+      2: 600,
+      3: 1400,
+      4: 3200,
+      5: 7500,
+      6: 16000,
+      7: 35000
+    };
+
+    /* ========================================================================
+       3. GESTIONNAIRE DE PARTICULES CANVAS (ACCUEIL & AMBIANCE DES ÉTAGES)
+       ======================================================================== */
+    const AmbientFX = (() => {
+      let particles = [];
+      let rainDrops = [];
+      let rafId = null;
+
+      function initParticles() {
+        particles = Array.from({ length: 42 }, () => ({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          r: 1 + Math.random() * 2.4,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: -0.2 - Math.random() * 0.45,
+          alpha: 0.15 + Math.random() * 0.45
+        }));
+        rainDrops = Array.from({ length: 75 }, () => ({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          len: 12 + Math.random() * 18,
+          speed: 7 + Math.random() * 6
+        }));
+      }
+
+      function renderCanvas(canvas, mode) {
+        if (!canvas) return;
+        const rect = canvas.getBoundingClientRect();
+        if (rect.width === 0 || rect.height === 0) return;
+        if (canvas.width !== rect.width || canvas.height !== rect.height) {
+          canvas.width = rect.width;
+          canvas.height = rect.height;
+        }
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Pluie nocturne sur l'étage 4 Penthouse
+        if (mode === 'rain') {
+          ctx.strokeStyle = 'rgba(246, 220, 122, 0.22)';
+          ctx.lineWidth = 1.2;
+          for (const d of rainDrops) {
+            ctx.beginPath();
+            ctx.moveTo(d.x, d.y);
+            ctx.lineTo(d.x - 3, d.y + d.len);
+            ctx.stroke();
+            d.x -= 1.5;
+            d.y += d.speed;
+            if (d.y > canvas.height) {
+              d.y = -20;
+              d.x = Math.random() * canvas.width;
+            }
+          }
+        }
+
+        // Poussière dorée & volutes
+        for (const p of particles) {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = mode === 'emerald'
+            ? `rgba(52, 211, 153, ${p.alpha * 0.65})`
+            : `rgba(246, 220, 122, ${p.alpha})`;
+          ctx.fill();
+
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.y < -10) {
+            p.y = canvas.height + 10;
+            p.x = Math.random() * canvas.width;
+          }
+          if (p.x < 0) p.x = canvas.width;
+          if (p.x > canvas.width) p.x = 0;
+        }
+      }
+
+      function loop() {
+        const homeScreen = document.getElementById('screen-home');
+        if (homeScreen && !homeScreen.classList.contains('hidden')) {
+          renderCanvas(document.getElementById('home-particles-canvas'), 'gold');
+        } else {
+          const fl = Game.state.currentFloor;
+          const mode = fl === 4 ? 'rain' : (fl === 1 ? 'emerald' : 'gold');
+          renderCanvas(document.getElementById('floor-ambient-canvas'), mode);
+        }
+        rafId = requestAnimationFrame(loop);
+      }
+
+      return {
+        start() {
+          initParticles();
+          if (!rafId) loop();
+        }
+      };
+    })();
+
+    /* ========================================================================
+       4. SAUVEGARDE DES RECORDS (LOCALSTORAGE)
+       ======================================================================== */
+    const RECORDS_KEY = 'omerta_syndicat_records_v2';
+
+    const Records = {
+      data: {
+        bestDay: 0,
+        bestBalance: 0,
+        gamesPlayed: 0,
+        maxFloorUnlocked: 1
+      },
+      load() {
+        try {
+          const raw = localStorage.getItem(RECORDS_KEY);
+          if (raw) {
+            const p = JSON.parse(raw);
+            this.data.bestDay = Number(p.bestDay) || 0;
+            this.data.bestBalance = Number(p.bestBalance) || 0;
+            this.data.gamesPlayed = Number(p.gamesPlayed) || 0;
+            this.data.maxFloorUnlocked = Math.max(1, Math.min(4, Number(p.maxFloorUnlocked) || 1));
+          }
+        } catch (e) {}
+        this.render();
+      },
+      save() {
+        try {
+          localStorage.setItem(RECORDS_KEY, JSON.stringify(this.data));
+        } catch (e) {}
+        this.render();
+      },
+      recordRunStart() {
+        this.data.gamesPlayed += 1;
+        this.save();
+      },
+      checkBalance(bal) {
+        if (bal > this.data.bestBalance) {
+          this.data.bestBalance = Math.floor(bal);
+          this.save();
+          return true;
+        }
+        return false;
+      },
+      checkDayAndFloor(day) {
+        let updated = false;
+        if (day > this.data.bestDay) {
+          this.data.bestDay = day;
+          updated = true;
+        }
+        let unlocked = 1;
+        if (day >= 7) unlocked = 4;
+        else if (day >= 5) unlocked = 3;
+        else if (day >= 3) unlocked = 2;
+        if (unlocked > this.data.maxFloorUnlocked) {
+          this.data.maxFloorUnlocked = unlocked;
+          updated = true;
+        }
+        if (updated) this.save();
+        return updated;
+      },
+      render() {
+        const d = document.getElementById('rec-best-day');
+        const b = document.getElementById('rec-best-bal');
+        const g = document.getElementById('rec-games-played');
+        const f = document.getElementById('rec-max-floor');
+        if (d) d.textContent = `Jour ${this.data.bestDay}`;
+        if (b) b.textContent = UI.formatMoney(this.data.bestBalance);
+        if (g) g.textContent = String(this.data.gamesPlayed);
+        if (f) f.textContent = `${this.data.maxFloorUnlocked} / 4`;
+      }
+    };
+
+    /* ========================================================================
+       5. UTILITAIRES UI & EFFET MACHINE À ÉCRIRE PNJ
+       ======================================================================== */
+    const UI = {
+      typeTimer: null,
+      formatMoney(n) {
+        return Math.floor(n).toLocaleString('fr-FR') + ' €';
+      },
+      toast(msg, type = 'info') {
+        const box = document.getElementById('toast-box');
+        const el = document.createElement('div');
+        const styles = {
+          info: 'bg-stone-950/95 border-amber-400/60 text-amber-200',
+          win: 'bg-emerald-950/95 border-emerald-400 text-emerald-200',
+          danger: 'bg-red-950/95 border-red-500 text-red-100'
+        };
+        el.className = `pointer-events-auto px-3.5 py-2.5 rounded-xl border shadow-2xl text-xs font-semibold transition-all duration-300 ${styles[type] || styles.info}`;
+        el.textContent = msg;
+        box.appendChild(el);
+        setTimeout(() => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateX(16px)';
+          setTimeout(() => el.remove(), 280);
+        }, 2700);
+      },
+      npcSpeak(text, instant = false) {
+        const el = document.getElementById('npc-dialogue-text');
+        if (!el) return;
+        if (this.typeTimer) clearInterval(this.typeTimer);
+        if (instant) {
+          el.textContent = text;
+          return;
+        }
+        el.textContent = '';
+        let i = 0;
+        this.typeTimer = setInterval(() => {
+          el.textContent += text.charAt(i);
+          if (i % 3 === 0) AudioEngine.typeTick();
+          i++;
+          if (i >= text.length) {
+            clearInterval(this.typeTimer);
+            this.typeTimer = null;
+          }
+        }, 18);
+      },
+      npcReact(category) {
+        const floor = FLOORS_DATA[Game.state.currentFloor] || FLOORS_DATA[1];
+        const pool = floor.npc[category] || floor.npc.greetings;
+        const line = pool[Math.floor(Math.random() * pool.length)];
+        this.npcSpeak(line);
+      },
+      openModal(id) {
+        AudioEngine.chip();
+        document.getElementById(id).classList.remove('hidden');
+      },
+      closeModal(id) {
+        AudioEngine.chip();
+        document.getElementById(id).classList.add('hidden');
+      }
+    };
+
+    /* ========================================================================
+       6. CONTRÔLEUR DE MISE RAPIDE
+       ======================================================================== */
+    const BetController = {
+      bet: 20,
+      getBet() {
+        const input = document.getElementById('bet-input');
+        const val = input ? Math.floor(Number(input.value) || 0) : this.bet;
+        return Math.max(1, Math.min(Game.state.balance, val));
+      },
+      setBet(val) {
+        if (Game.isRoundActive()) return;
+        const max = Math.max(0, Math.floor(Game.state.balance));
+        this.bet = max <= 0 ? 0 : Math.max(1, Math.min(max, Math.floor(val)));
+        const input = document.getElementById('bet-input');
+        if (input) input.value = this.bet;
+        this.syncUI();
+      },
+      onManualInput() {
+        if (Game.isRoundActive()) {
+          const input = document.getElementById('bet-input');
+          if (input) input.value = this.bet;
+          return;
+        }
+        const input = document.getElementById('bet-input');
+        const raw = Math.floor(Number(input.value) || 0);
+        if (raw > Game.state.balance) {
+          this.bet = Math.max(1, Math.floor(Game.state.balance));
+          input.value = this.bet;
+        } else {
+          this.bet = Math.max(1, raw);
+        }
+        this.syncUI();
+      },
+      adjust(delta) {
+        if (Game.isRoundActive()) return;
+        AudioEngine.chip();
+        this.setBet(this.getBet() + delta);
+      },
+      setPercent(pct) {
+        if (Game.isRoundActive()) return;
+        AudioEngine.chip();
+        this.setBet(Math.max(1, Math.floor(Game.state.balance * pct)));
+      },
+      setAllIn() {
+        if (Game.isRoundActive()) return;
+        AudioEngine.chip();
+        this.setBet(Game.state.balance);
+      },
+      fillGap() {
+        if (Game.isRoundActive()) return;
+        AudioEngine.chip();
+        const gap = Math.max(0, Game.state.target - Game.state.balance);
+        if (gap <= 0) {
+          UI.toast("Objectif déjà atteint !", 'win');
+          return;
+        }
+        this.setBet(Math.min(Game.state.balance, Math.max(1, gap)));
+      },
+      syncUI() {
+        const gap = Math.max(0, Game.state.target - Game.state.balance);
+        const gapInfo = document.getElementById('modal-gap-info');
+        const btnFill = document.getElementById('btn-fill-gap');
+        const input = document.getElementById('bet-input');
+        const locked = Game.isRoundActive();
+
+        if (input) {
+          input.value = this.bet;
+          input.disabled = locked;
+        }
+        if (gapInfo) {
+          gapInfo.innerHTML = gap > 0
+            ? `Écart objectif : <strong class="font-mono-num text-amber-300">${UI.formatMoney(gap)}</strong>`
+            : `<strong class="text-emerald-400">✓ Objectif atteint !</strong>`;
+        }
+        if (btnFill) {
+          btnFill.disabled = locked || gap <= 0 || Game.state.balance <= 0;
+        }
+      }
+    };
+
+    /* ========================================================================
+       7. MOTEUR PRINCIPAL DE JEU, ASCENSEUR & SURVIE
+       ======================================================================== */
+    const Game = {
+      DAY_SECONDS: 90,
+      state: {
+        active: false,
+        paused: false,
+        day: 1,
+        balance: 0,
+        target: 250,
+        currentFloor: 1,
+        activeModalGame: null,
+        elevatorMoving: false,
+        timeLeftMs: 90000,
+        lastTick: 0,
+        lastUrgentSec: -1,
+        runMaxBalance: 0,
+        newRecordRun: false
+      },
+      timerId: null,
+
+      getTargetForDay(day) {
+        if (TARGETS_BY_DAY[day]) return TARGETS_BY_DAY[day];
+        let t = TARGETS_BY_DAY[7];
+        for (let d = 8; d <= day; d++) {
+          t = Math.round((t * 2.2) / 100) * 100;
+        }
+        return t;
+      },
+
+      isRoundActive() {
+        return Boolean(
+          MiniGames.slots.spinning ||
+          MiniGames.coinflip.flipping ||
+          MiniGames.blackjack.active ||
+          MiniGames.roulette.spinning ||
+          MiniGames.crash.running ||
+          MiniGames.dice.rolling ||
+          MiniGames.mines.active ||
+          MiniGames.hilow.active
+        );
+      },
+
+      resetAllGames() {
+        if (MiniGames.crash.rafId) cancelAnimationFrame(MiniGames.crash.rafId);
+        MiniGames.slots.spinning = false;
+        MiniGames.coinflip.flipping = false;
+        MiniGames.blackjack.active = false;
+        MiniGames.roulette.spinning = false;
+        MiniGames.crash.running = false;
+        MiniGames.dice.rolling = false;
+        MiniGames.mines.active = false;
+        MiniGames.hilow.active = false;
+      },
+
+      startNewRun() {
+        AudioEngine.win(false);
+        this.resetAllGames();
+        Records.recordRunStart();
+
+        this.state = {
+          active: true,
+          paused: false,
+          day: 1,
+          balance: 100,
+          target: this.getTargetForDay(1),
+          currentFloor: 1,
+          activeModalGame: null,
+          elevatorMoving: false,
+          timeLeftMs: this.DAY_SECONDS * 1000,
+          lastTick: Date.now(),
+          lastUrgentSec: -1,
+          runMaxBalance: 100,
+          newRecordRun: false
+        };
+
+        if (Records.checkBalance(100)) this.state.newRecordRun = true;
+        if (Records.checkDayAndFloor(1)) this.state.newRecordRun = true;
+
+        document.getElementById('screen-home').classList.add('hidden');
+        document.getElementById('screen-day-complete').classList.add('hidden');
+        document.getElementById('screen-execution').classList.add('hidden');
+        document.getElementById('game-table-modal').classList.add('hidden');
+        document.getElementById('screen-game').classList.remove('hidden');
+        this.hideExitWarning();
+
+        BetController.setBet(20);
+        this.renderElevatorPanel();
+        this.renderFloorScene(true);
+        this.updateHUD();
+        this.startTimer();
+      },
+
+      startTimer() {
+        if (this.timerId) clearInterval(this.timerId);
+        this.state.lastTick = Date.now();
+        this.timerId = setInterval(() => this.tick(), 100);
+      },
+
+      tick() {
+        if (!this.state.active || this.state.paused) {
+          this.state.lastTick = Date.now();
+          return;
+        }
+        const now = Date.now();
+        const dt = now - this.state.lastTick;
+        this.state.lastTick = now;
+
+        this.state.timeLeftMs = Math.max(0, this.state.timeLeftMs - dt);
+        this.updateTimerUI();
+
+        const sec = Math.ceil(this.state.timeLeftMs / 1000);
+        if (sec <= 20 && sec > 0 && sec !== this.state.lastUrgentSec) {
+          this.state.lastUrgentSec = sec;
+          AudioEngine.urgent();
+          if (sec === 20) {
+            UI.npcSpeak("« Vingt secondes au sablier ! Dépêche-toi ou les nettoyeurs entrent en scène ! »");
+          }
+        }
+
+        if (this.state.timeLeftMs <= 0) {
+          if (this.state.balance >= this.state.target) {
+            if (MiniGames.crash.running) MiniGames.crash.cashOut(true);
+            this.completeDay(true);
+          } else {
+            this.triggerExecution("Le chronomètre a atteint 00:00 avant que vous n'ayez réuni la somme exigée.");
+          }
+        }
+      },
+
+      updateTimerUI() {
+        const sec = Math.ceil(this.state.timeLeftMs / 1000);
+        const mm = String(Math.floor(sec / 60)).padStart(2, '0');
+        const ss = String(sec % 60).padStart(2, '0');
+        const str = `${mm}:${ss}`;
+
+        const hudTimer = document.getElementById('hud-timer');
+        const hudBox = document.getElementById('hud-timer-box');
+        const modalTimer = document.getElementById('modal-hud-timer');
+
+        if (hudTimer) hudTimer.textContent = str;
+        if (modalTimer) modalTimer.textContent = str;
+        if (hudBox) {
+          hudBox.classList.toggle('timer-danger', sec <= 20);
+        }
+      },
+
+      addBalance(delta) {
+        const wasSafe = this.state.balance >= this.state.target;
+        this.state.balance = Math.max(0, Math.round(this.state.balance + delta));
+
+        if (this.state.balance > this.state.runMaxBalance) {
+          this.state.runMaxBalance = this.state.balance;
+        }
+        if (Records.checkBalance(this.state.balance)) {
+          this.state.newRecordRun = true;
+        }
+
+        if (!wasSafe && this.state.balance >= this.state.target) {
+          UI.toast("🎯 OBJECTIF ATTEINT ! Vous pouvez quitter le casino en vie.", 'win');
+          if (!this.state.activeModalGame) UI.npcReact('targetLines');
+          this.hideExitWarning();
+        }
+
+        if (!this.isRoundActive() && BetController.bet > this.state.balance && this.state.balance > 0) {
+          BetController.setBet(this.state.balance);
+        }
+
+        this.updateHUD();
+        BetController.syncUI();
+      },
+
+      checkBankruptcy() {
+        if (!this.state.active || this.state.paused) return;
+        if (this.state.balance <= 0 && !this.isRoundActive()) {
+          this.triggerExecution("Vous avez perdu jusqu'à votre dernier centime face au Syndicat.");
+        }
+      },
+
+      updateHUD() {
+        const s = this.state;
+        const floor = FLOORS_DATA[s.currentFloor] || FLOORS_DATA[1];
+        const safe = s.balance >= s.target;
+        const pct = Math.min(100, Math.floor((s.balance / s.target) * 100));
+
+        document.getElementById('hud-day').textContent = `JOUR ${s.day}`;
+        document.getElementById('hud-floor-tag').textContent = `ÉTAGE ${floor.roman}`;
+        document.getElementById('hud-floor-title').textContent = floor.title;
+        document.getElementById('hud-balance').textContent = UI.formatMoney(s.balance);
+        document.getElementById('hud-target').textContent = UI.formatMoney(s.target);
+
+        const mBal = document.getElementById('modal-hud-balance');
+        const mTar = document.getElementById('modal-hud-target');
+        if (mBal) mBal.textContent = UI.formatMoney(s.balance);
+        if (mTar) mTar.textContent = `Obj: ${UI.formatMoney(s.target)}`;
+
+        document.getElementById('hud-progress-label').textContent = `${UI.formatMoney(s.balance)} / ${UI.formatMoney(s.target)} (${pct}%)`;
+        const fill = document.getElementById('hud-progress-fill');
+        fill.style.width = `${pct}%`;
+        fill.className = safe
+          ? 'h-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-amber-300 transition-all duration-300'
+          : 'h-full bg-gradient-to-r from-red-600 via-amber-500 to-amber-300 transition-all duration-300';
+
+        const exitBtn = document.getElementById('btn-exit-casino');
+        const exitTxt = document.getElementById('btn-exit-text');
+        if (safe) {
+          exitBtn.className = 'exit-unlocked-glow px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-extrabold text-xs sm:text-sm tracking-wide transition cursor-pointer flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 via-emerald-400 to-amber-400 text-black border border-amber-100';
+          exitTxt.textContent = 'QUITTER (SAUVÉ)';
+        } else {
+          exitBtn.className = 'px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-extrabold text-xs sm:text-sm tracking-wide transition cursor-pointer flex items-center gap-1.5 bg-red-950 border border-red-500/70 text-red-200 hover:bg-red-900';
+          exitTxt.textContent = 'QUITTER';
+        }
+
+        this.updateTimerUI();
+        BetController.syncUI();
+      },
+
+      /* --- ASCENSEUR ART DÉCO & CHANGEMENT D'ÉTAGE --- */
+      renderElevatorPanel() {
+        const curFloor = FLOORS_DATA[this.state.currentFloor] || FLOORS_DATA[1];
+        const needle = document.getElementById('elevator-dial-needle');
+        const digi = document.getElementById('elevator-digital-floor');
+        if (needle) needle.style.transform = `rotate(${curFloor.needleAngle}deg)`;
+        if (digi) digi.textContent = `ÉTAGE ${curFloor.roman}`;
+
+        [1, 2, 3, 4].forEach(id => {
+          const f = FLOORS_DATA[id];
+          const btn = document.getElementById(`elev-btn-${id}`);
+          const sub = document.getElementById(`elev-sub-${id}`);
+          const unlocked = this.state.day >= f.unlockDay;
+          const active = this.state.currentFloor === id;
+
+          if (!unlocked) {
+            btn.className = 'w-full p-2 sm:p-2.5 rounded-2xl border-2 border-stone-800 bg-stone-950/80 text-stone-600 transition cursor-not-allowed flex flex-col items-center justify-center gap-0.5 opacity-65';
+            sub.textContent = `🔒 Jour ${f.unlockDay}`;
+          } else if (active) {
+            btn.className = 'w-full p-2 sm:p-2.5 rounded-2xl border-2 border-amber-300 bg-gradient-to-b from-amber-400 via-amber-500 to-amber-700 text-black shadow-[0_0_18px_rgba(246,220,122,0.65)] transition cursor-pointer flex flex-col items-center justify-center gap-0.5';
+            sub.textContent = f.shortName;
+          } else {
+            btn.className = 'w-full p-2 sm:p-2.5 rounded-2xl border-2 border-amber-500/40 bg-stone-900/90 hover:bg-stone-800 hover:border-amber-400 text-amber-200 transition cursor-pointer flex flex-col items-center justify-center gap-0.5';
+            sub.textContent = f.shortName;
+          }
+        });
+      },
+
+      requestFloorChange(targetFloorId) {
+        if (this.state.elevatorMoving || this.state.paused) return;
+        const floor = FLOORS_DATA[targetFloorId];
+        if (!floor) return;
+
+        // Si une table de jeu est ouverte, bloquer le changement tant que non quittée
+        if (this.state.activeModalGame) {
+          UI.toast("⚠️ Quittez d'abord la table de jeu avant de prendre l'ascenseur.", 'danger');
+          return;
+        }
+
+        // Étage verrouillé -> vibration + son + réplique PNJ
+        if (this.state.day < floor.unlockDay) {
+          AudioEngine.locked();
+          const btn = document.getElementById(`elev-btn-${targetFloorId}`);
+          if (btn) {
+            btn.classList.remove('animate-lock-shake');
+            void btn.offsetWidth;
+            btn.classList.add('animate-lock-shake');
+          }
+          UI.toast(`🔒 Étage ${floor.roman} verrouillé ! Requis : Jour ${floor.unlockDay}.`, 'danger');
+          UI.npcReact('lockedLines');
+          return;
+        }
+
+        if (this.state.currentFloor === targetFloorId) {
+          AudioEngine.chip();
+          UI.npcReact('greetings');
+          return;
+        }
+
+        // Animation de fermeture/ouverture des portes métalliques d'ascenseur
+        this.state.elevatorMoving = true;
+        const doors = document.getElementById('elevator-doors-overlay');
+        AudioEngine.elevatorDoor();
+        doors.classList.add('elevator-closed');
+
+        // Mise à jour immédiate de l'aiguille du cadran
+        this.state.currentFloor = targetFloorId;
+        this.renderElevatorPanel();
+
+        setTimeout(() => {
+          AudioEngine.elevatorDing();
+          this.renderFloorScene(false);
+          this.updateHUD();
+        }, 500);
+
+        setTimeout(() => {
+          doors.classList.remove('elevator-closed');
+          this.state.elevatorMoving = false;
+        }, 720);
+      },
+
+      renderFloorScene(instantDialogue = false) {
+        const floor = FLOORS_DATA[this.state.currentFloor] || FLOORS_DATA[1];
+        const backdrop = document.getElementById('floor-backdrop');
+        backdrop.className = `flex-1 relative flex flex-col justify-between p-3 sm:p-6 transition-all duration-500 overflow-y-auto ${floor.themeClass}`;
+
+        document.getElementById('stage-floor-subtitle').textContent = floor.subtitle;
+        document.getElementById('npc-portrait-container').innerHTML = floor.npc.svg;
+        document.getElementById('npc-name-badge').textContent = floor.npc.name;
+        document.getElementById('npc-role-badge').textContent = floor.npc.role;
+
+        // Dialogue d'accueil de l'étage
+        const greet = floor.npc.greetings[Math.floor(Math.random() * floor.npc.greetings.length)];
+        UI.npcSpeak(greet, instantDialogue);
+
+        // Rendu des 2 stands de jeux sur le comptoir
+        const grid = document.getElementById('counter-games-grid');
+        grid.innerHTML = floor.games.map(g => `
+          <button onclick="Game.openGameModal('${g.id}')" class="group p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-stone-950 via-stone-900 to-amber-950/40 hover:from-amber-950/60 hover:to-stone-900 border-2 border-amber-500/45 hover:border-amber-300 text-left transition-all duration-200 cursor-pointer shadow-lg hover:-translate-y-0.5 flex items-center gap-3.5">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-black/80 border border-amber-400/40 flex items-center justify-center text-2xl sm:text-3xl shrink-0 group-hover:scale-110 transition-transform">
+              ${g.icon}
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-deco font-bold text-xs sm:text-sm text-amber-200 group-hover:text-amber-300 truncate">${g.name}</span>
+                <span class="px-2 py-0.5 rounded bg-amber-500/20 border border-amber-400/40 font-mono-num text-[10px] font-bold text-amber-300 shrink-0">${g.badge}</span>
+              </div>
+              <p class="text-[11px] text-stone-400 mt-1 line-clamp-2">${g.desc}</p>
+              <span class="inline-block mt-1.5 text-[11px] font-bold text-emerald-400 group-hover:translate-x-1 transition-transform">S'asseoir à la table ➔</span>
+            </div>
+          </button>
+        `).join('');
+      },
+
+      /* --- MODALE D'UN MINI-JEU (OUVERTURE / QUITTER LA TABLE) --- */
+      openGameModal(gameId) {
+        if (this.state.elevatorMoving || this.state.paused) return;
+        AudioEngine.chip();
+        this.state.activeModalGame = gameId;
+
+        const floor = FLOORS_DATA[this.state.currentFloor] || FLOORS_DATA[1];
+        const gameMeta = floor.games.find(g => g.id === gameId);
+        document.getElementById('modal-game-title').textContent = gameMeta
+          ? `${gameMeta.icon} ${gameMeta.name}`
+          : 'TABLE DE JEU';
+
+        this.renderActiveModalGame();
+        this.updateHUD();
+        document.getElementById('game-table-modal').classList.remove('hidden');
+      },
+
+      renderActiveModalGame() {
+        const gid = this.state.activeModalGame;
+        const stage = document.getElementById('modal-game-stage');
+        if (gid && MiniGames[gid] && stage) {
+          MiniGames[gid].render(stage);
+        }
+        BetController.syncUI();
+      },
+
+      closeGameModal() {
+        if (this.isRoundActive()) {
+          UI.toast("⚠️ Terminez ou encaissez votre coup en cours avant de quitter la table !", 'danger');
+          return;
+        }
+        AudioEngine.chip();
+        this.state.activeModalGame = null;
+        document.getElementById('game-table-modal').classList.add('hidden');
+      },
+
+      /* --- SORTIE DU CASINO & FIN DE JOURNÉE --- */
+      attemptExitCasino() {
+        if (!this.state.active || this.state.paused) return;
+        if (this.isRoundActive()) {
+          UI.toast("⚠️ Terminez d'abord votre partie en cours !", 'danger');
+          return;
+        }
+
+        if (this.state.balance >= this.state.target) {
+          this.completeDay(false);
+        } else {
+          AudioEngine.locked();
+          document.getElementById('exit-danger-banner').classList.remove('hidden');
+        }
+      },
+
+      hideExitWarning() {
+        document.getElementById('exit-danger-banner').classList.add('hidden');
+      },
+
+      confirmExecutionExit() {
+        this.hideExitWarning();
+        this.triggerExecution("Vous avez franchi les portes du casino sans réunir la somme due au Syndicat.");
+      },
+
+      completeDay(byTimeout = false) {
+        this.state.paused = true;
+        this.resetAllGames();
+        this.state.activeModalGame = null;
+        document.getElementById('game-table-modal').classList.add('hidden');
+        AudioEngine.win(true);
+
+        const nextDay = this.state.day + 1;
+        const nextTarget = this.getTargetForDay(nextDay);
+        if (Records.checkDayAndFloor(nextDay)) {
+          this.state.newRecordRun = true;
+        }
+
+        document.getElementById('day-complete-title').textContent = `JOUR ${this.state.day} SURVÉCU`;
+        document.getElementById('day-complete-quote').textContent = byTimeout
+          ? "« Le chrono a sonné, mais l'argent était sur la table. Mes hommes te laissent passer la nuit. »"
+          : "« Tu sais compter, l'ami. Profite de ta liberté jusqu'à demain... la dette grossit. »";
+
+        document.getElementById('summary-kept-balance').textContent = UI.formatMoney(this.state.balance);
+        document.getElementById('summary-cleared-target').textContent = UI.formatMoney(this.state.target);
+        document.getElementById('summary-next-day').textContent = `Jour ${nextDay}`;
+        document.getElementById('summary-next-target').textContent = UI.formatMoney(nextTarget);
+
+        // Vérifier déblocage nouvel étage
+        const unlockedFloor = Object.values(FLOORS_DATA).find(f => f.unlockDay === nextDay);
+        const banner = document.getElementById('day-unlock-banner');
+        if (unlockedFloor) {
+          banner.classList.remove('hidden');
+          document.getElementById('day-unlock-name').textContent = `Étage ${unlockedFloor.roman} — ${unlockedFloor.title}`;
+          document.getElementById('day-unlock-games').textContent = unlockedFloor.games.map(g => g.name).join(' & ');
+        } else {
+          banner.classList.add('hidden');
+        }
+
+        document.getElementById('screen-day-complete').classList.remove('hidden');
+      },
+
+      startNextDay() {
+        AudioEngine.chip();
+        this.state.day += 1;
+        this.state.target = this.getTargetForDay(this.state.day);
+        this.state.timeLeftMs = this.DAY_SECONDS * 1000;
+        this.state.lastTick = Date.now();
+        this.state.lastUrgentSec = -1;
+        this.state.paused = false;
+
+        document.getElementById('screen-day-complete').classList.add('hidden');
+        this.hideExitWarning();
+
+        BetController.setBet(Math.min(this.state.balance, Math.max(10, Math.floor(this.state.balance * 0.2))));
+        this.renderElevatorPanel();
+        this.renderFloorScene(false);
+        this.updateHUD();
+      },
+
+      triggerExecution(reason) {
+        if (!this.state.active) return;
+        this.state.active = false;
+        this.state.paused = true;
+        this.resetAllGames();
+        this.state.activeModalGame = null;
+        if (this.timerId) clearInterval(this.timerId);
+
+        document.getElementById('game-table-modal').classList.add('hidden');
+
+        // Flash rouge + Coup de feu
+        AudioEngine.gunshot();
+        const flash = document.getElementById('blood-flash-layer');
+        flash.classList.remove('hidden', 'blood-flash');
+        void flash.offsetWidth;
+        flash.classList.add('blood-flash');
+        setTimeout(() => flash.classList.add('hidden'), 1200);
+
+        const quotes = [
+          "« Dans ma maison, on paie en billets ou en sang. Nettoyez-moi ce tapis. »",
+          "« Tu avais 90 secondes, l'ami. Le Syndicat ne fait jamais crédit deux fois. »",
+          "« Dommage... J'aimais bien ton style. Passez au client suivant. »"
+        ];
+
+        document.getElementById('exec-reason').textContent = reason;
+        document.getElementById('exec-quote').textContent = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById('exec-day').textContent = `Jour ${this.state.day}`;
+        document.getElementById('exec-maxbal').textContent = UI.formatMoney(this.state.runMaxBalance);
+        document.getElementById('exec-record-banner').classList.toggle('hidden', !this.state.newRecordRun);
+
+        this.state.balance = 0;
+        document.getElementById('screen-execution').classList.remove('hidden');
+      },
+
+      returnToHome() {
+        AudioEngine.chip();
+        this.state.balance = 0;
+        this.state.day = 1;
+        document.getElementById('home-cash-display').textContent = '0 €';
+        document.getElementById('screen-execution').classList.add('hidden');
+        document.getElementById('screen-game').classList.add('hidden');
+        document.getElementById('screen-home').classList.remove('hidden');
+        Records.render();
+      }
+    };
+
+    /* ========================================================================
+       8. LES 8 MINI-JEUX (2 PAR ÉTAGE)
+       ======================================================================== */
+    const MiniGames = {
+
+      /* ----------------------------------------------------------------------
+         ÉTAGE 1 — JEU 1 : MACHINE À SOUS « LA MAMMA »
+         ---------------------------------------------------------------------- */
+      slots: {
+        spinning: false,
+        reels: ['🍒', '🔔', '🎰'],
+        lastMsg: 'Alignez 3 symboles identiques pour faire sauter la banque !',
+        symbols: [
+          { icon: '🍒', name: 'Cerise', mult: 2, weight: 34 },
+          { icon: '🍋', name: 'Citron', mult: 3, weight: 28 },
+          { icon: '🔔', name: 'Cloche', mult: 5, weight: 20 },
+          { icon: '🪙', name: 'Lingot', mult: 10, weight: 12 },
+          { icon: '🎰', name: '777', mult: 25, weight: 6 }
+        ],
+
+        pickSymbol() {
+          const total = this.symbols.reduce((s, x) => s + x.weight, 0);
+          let r = Math.random() * total;
+          for (const s of this.symbols) {
+            if (r < s.weight) return s;
+            r -= s.weight;
+          }
+          return this.symbols[0];
+        },
+
+        render(container) {
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="grid grid-cols-5 gap-1.5 text-center text-xs">
+                ${this.symbols.map(s => `
+                  <div class="p-2 rounded-xl bg-black/70 border border-amber-500/25">
+                    <span class="text-xl block">${s.icon}</span>
+                    <span class="font-mono-num font-bold text-amber-300">×${s.mult}</span>
+                  </div>
+                `).join('')}
+              </div>
+
+              <div class="p-5 sm:p-6 rounded-3xl bg-gradient-to-b from-black via-stone-900 to-black border-2 border-amber-500/60 flex items-center justify-center gap-3 sm:gap-5 shadow-inner">
+                ${[0, 1, 2].map(i => `
+                  <div id="slot-reel-${i}" class="w-20 h-24 sm:w-28 sm:h-32 rounded-2xl bg-gradient-to-b from-stone-800 via-stone-900 to-stone-950 border border-amber-400/50 flex items-center justify-center text-4xl sm:text-6xl shadow-lg">
+                    ${this.reels[i]}
+                  </div>
+                `).join('')}
+              </div>
+
+              <p id="slots-msg" class="text-center text-xs sm:text-sm font-bold text-stone-200 min-h-[22px]">${this.lastMsg}</p>
+
+              <button id="slots-btn" onclick="MiniGames.slots.spin()" class="btn-brass w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer">
+                ACTIONNER LE LEVIER
+              </button>
+            </div>
+          `;
+        },
+
+        spin() {
+          if (this.spinning || Game.state.paused) return;
+          const bet = BetController.getBet();
+          if (bet <= 0 || bet > Game.state.balance) {
+            UI.toast('Solde insuffisant pour cette mise.', 'danger');
+            return;
+          }
+
+          this.spinning = true;
+          Game.addBalance(-bet);
+          BetController.syncUI();
+
+          const btn = document.getElementById('slots-btn');
+          if (btn) btn.disabled = true;
+
+          const finals = [this.pickSymbol(), this.pickSymbol(), this.pickSymbol()];
+          const timers = [];
+
+          [0, 1, 2].forEach(idx => {
+            const el = document.getElementById(`slot-reel-${idx}`);
+            if (el) el.classList.add('reel-spinning');
+            timers[idx] = setInterval(() => {
+              AudioEngine.tick();
+              if (el) el.textContent = this.symbols[Math.floor(Math.random() * this.symbols.length)].icon;
+            }, 70);
+          });
+
+          [0, 1, 2].forEach(idx => {
+            setTimeout(() => {
+              clearInterval(timers[idx]);
+              const el = document.getElementById(`slot-reel-${idx}`);
+              if (el) {
+                el.classList.remove('reel-spinning');
+                el.textContent = finals[idx].icon;
+              }
+              AudioEngine.chip();
+
+              if (idx === 2) {
+                this.reels = finals.map(x => x.icon);
+                this.finish(bet, finals);
+              }
+            }, 340 + idx * 200);
+          });
+        },
+
+        finish(bet, syms) {
+          this.spinning = false;
+          const btn = document.getElementById('slots-btn');
+          if (btn) btn.disabled = false;
+
+          let mult = 0;
+          let label = '';
+          if (syms[0].icon === syms[1].icon && syms[1].icon === syms[2].icon) {
+            mult = syms[0].mult;
+            label = `TRIPLE ${syms[0].name.toUpperCase()} (×${mult})`;
+          } else if (syms.filter(s => s.icon === '🍒').length === 2) {
+            mult = 1.2;
+            label = 'Paire de Cerises (×1.2)';
+          }
+
+          if (mult > 0) {
+            const win = Math.round(bet * mult);
+            this.lastMsg = `🎉 ${label} ! Gain : +${UI.formatMoney(win)}`;
+            AudioEngine.win(mult >= 10);
+            UI.npcReact('winLines');
+            Game.addBalance(win);
+          } else {
+            this.lastMsg = `Perdu (-${UI.formatMoney(bet)}). Retentez votre chance !`;
+            AudioEngine.lose();
+            UI.npcReact('loseLines');
+          }
+
+          const msgEl = document.getElementById('slots-msg');
+          if (msgEl) {
+            msgEl.textContent = this.lastMsg;
+            msgEl.className = `text-center text-xs sm:text-sm font-bold min-h-[22px] ${mult > 0 ? 'text-emerald-400' : 'text-red-400'}`;
+          }
+          BetController.syncUI();
+          if (mult === 0) Game.checkBankruptcy();
+        }
+      },
+
+      /* ----------------------------------------------------------------------
+         ÉTAGE 1 — JEU 2 : PILE OU FACE TRUQUÉ (PIÈCE 3D)
+         ---------------------------------------------------------------------- */
+      coinflip: {
+        flipping: false,
+        choice: 'pile',
+        rotY: 0,
+        lastMsg: 'Choisissez Couronne (Pile) ou Crâne (Face) • Multiplicateur ×1.95',
+
+        render(container) {
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="grid grid-cols-2 gap-3">
+                <button onclick="MiniGames.coinflip.pick('pile')" class="p-3.5 rounded-2xl border-2 transition cursor-pointer flex items-center justify-center gap-2.5 ${
+                  this.choice === 'pile'
+                    ? 'border-amber-400 bg-amber-950/70 text-amber-200 shadow-md'
+                    : 'border-stone-800 bg-black/60 text-stone-400 hover:bg-stone-900'
+                }">
+                  <span class="text-2xl">👑</span>
+                  <div class="text-left">
+                    <span class="font-deco font-bold text-xs sm:text-sm block">PILE (Couronne)</span>
+                    <span class="text-[11px] opacity-75">Gain ×1.95</span>
+                  </div>
+                </button>
+
+                <button onclick="MiniGames.coinflip.pick('face')" class="p-3.5 rounded-2xl border-2 transition cursor-pointer flex items-center justify-center gap-2.5 ${
+                  this.choice === 'face'
+                    ? 'border-amber-400 bg-amber-950/70 text-amber-200 shadow-md'
+                    : 'border-stone-800 bg-black/60 text-stone-400 hover:bg-stone-900'
+                }">
+                  <span class="text-2xl">💀</span>
+                  <div class="text-left">
+                    <span class="font-deco font-bold text-xs sm:text-sm block">FACE (Crâne)</span>
+                    <span class="text-[11px] opacity-75">Gain ×1.95</span>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Pièce 3D rotative -->
+              <div class="py-5 flex justify-center coin-stage">
+                <div id="coin-3d-disc" class="coin-3d" style="transform: rotateY(${this.rotY}deg);">
+                  <div class="coin-face coin-front">
+                    <span class="text-4xl">👑</span>
+                    <span class="font-deco font-black text-xs mt-1">PILE</span>
+                  </div>
+                  <div class="coin-face coin-back">
+                    <span class="text-4xl">💀</span>
+                    <span class="font-deco font-black text-xs mt-1">FACE</span>
+                  </div>
+                </div>
+              </div>
+
+              <p id="coin-msg" class="text-center text-xs sm:text-sm font-bold text-stone-200 min-h-[22px]">${this.lastMsg}</p>
+
+              <button id="coin-btn" onclick="MiniGames.coinflip.flip()" class="btn-brass w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer">
+                LANCER LA PIÈCE D'OR (×1.95)
+              </button>
+            </div>
+          `;
+        },
+
+        pick(side) {
+          if (this.flipping) return;
+          AudioEngine.chip();
+          this.choice = side;
+          Game.renderActiveModalGame();
+        },
+
+        flip() {
+          if (this.flipping || Game.state.paused) return;
+          const bet = BetController.getBet();
+          if (bet <= 0 || bet > Game.state.balance) {
+            UI.toast('Solde insuffisant.', 'danger');
+            return;
+          }
+
+          this.flipping = true;
+          Game.addBalance(-bet);
+          BetController.syncUI();
+          AudioEngine.card();
+
+          const btn = document.getElementById('coin-btn');
+          if (btn) btn.disabled = true;
+
+          const outcome = Math.random() < 0.5 ? 'pile' : 'face';
+          // Calcul de l'angle final 3D (multiple de 360 pour pile, +180 pour face)
+          const baseSpins = 1440;
+          const currentMod = this.rotY % 360;
+          const targetOffset = outcome === 'pile' ? 0 : 180;
+          this.rotY += baseSpins + (targetOffset - currentMod);
+
+          const disc = document.getElementById('coin-3d-disc');
+          if (disc) disc.style.transform = `rotateY(${this.rotY}deg)`;
+
+          setTimeout(() => {
+            this.flipping = false;
+            const won = outcome === this.choice;
+            if (won) {
+              const win = Math.round(bet * 1.95);
+              this.lastMsg = `🎉 C'est ${outcome.toUpperCase()} ! Vous gagnez +${UI.formatMoney(win)} !`;
+              AudioEngine.win(false);
+              UI.npcReact('winLines');
+              Game.addBalance(win);
+            } else {
+              this.lastMsg = `C'est ${outcome.toUpperCase()}... Perte de ${UI.formatMoney(bet)}.`;
+              AudioEngine.lose();
+              UI.npcReact('loseLines');
+            }
+
+            Game.renderActiveModalGame();
+            const msgEl = document.getElementById('coin-msg');
+            if (msgEl) msgEl.className = `text-center text-xs sm:text-sm font-bold min-h-[22px] ${won ? 'text-emerald-400' : 'text-red-400'}`;
+            if (!won) Game.checkBankruptcy();
+          }, 1020);
+        }
+      },
+
+      /* ----------------------------------------------------------------------
+         ÉTAGE 2 — JEU 3 : BLACKJACK DU PARRAIN
+         ---------------------------------------------------------------------- */
+      blackjack: {
+        active: false,
+        bet: 0,
+        deck: [],
+        player: [],
+        dealer: [],
+        hideDealer: true,
+        lastMsg: 'Approchez-vous de 21 sans dépasser • Blackjack naturel paie ×2.5',
+
+        createDeck() {
+          const suits = ['♠', '♥', '♦', '♣'];
+          const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+          const d = [];
+          for (const s of suits) for (const r of ranks) d.push({ s, r });
+          for (let i = d.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [d[i], d[j]] = [d[j], d[i]];
+          }
+          return d;
+        },
+
+        score(hand) {
+          let sum = 0, aces = 0;
+          for (const c of hand) {
+            if (c.r === 'A') { aces++; sum += 11; }
+            else if (['K', 'Q', 'J'].includes(c.r)) sum += 10;
+            else sum += Number(c.r);
+          }
+          while (sum > 21 && aces > 0) { sum -= 10; aces--; }
+          return sum;
+        },
+
+        cardHTML(c, hidden = false) {
+          if (hidden) {
+            return `<div class="w-14 h-20 rounded-xl bg-gradient-to-br from-red-900 via-red-950 to-black border-2 border-amber-400/60 flex items-center justify-center text-amber-300 font-deco font-bold shadow">♠</div>`;
+          }
+          const red = c.s === '♥' || c.s === '♦';
+          return `
+            <div class="w-14 h-20 rounded-xl bg-stone-100 border border-stone-300 p-1.5 flex flex-col justify-between shadow ${red ? 'text-red-600' : 'text-stone-900'}">
+              <span class="font-bold text-xs leading-none">${c.r}${c.s}</span>
+              <span class="text-lg self-center leading-none">${c.s}</span>
+              <span class="font-bold text-xs leading-none self-end rotate-180">${c.r}${c.s}</span>
+            </div>
+          `;
+        },
+
+        render(container) {
+          const pVal = this.player.length ? this.score(this.player) : 0;
+          const dVal = this.dealer.length ? (this.hideDealer ? this.score([this.dealer[0]]) : this.score(this.dealer)) : 0;
+          const canDouble = this.active && this.player.length === 2 && Game.state.balance >= this.bet;
+
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="p-4 rounded-2xl bg-emerald-950/35 border border-emerald-500/30 space-y-3">
+                <div>
+                  <div class="flex justify-between text-xs text-stone-400 mb-1">
+                    <span>Main du Croupier</span>
+                    <span class="font-mono-num font-bold text-stone-200">${this.dealer.length ? (this.hideDealer ? dVal + ' + ?' : dVal) : '-'}</span>
+                  </div>
+                  <div class="flex flex-wrap gap-2 min-h-[82px] items-center">
+                    ${this.dealer.length ? this.dealer.map((c, i) => this.cardHTML(c, this.hideDealer && i === 1)).join('') : '<span class="text-xs text-stone-500 italic">En attente...</span>'}
+                  </div>
+                </div>
+
+                <div class="border-t border-emerald-500/20"></div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-stone-400 mb-1">
+                    <span>Votre Main</span>
+                    <span class="font-mono-num font-bold ${pVal > 21 ? 'text-red-400' : 'text-amber-300'}">${this.player.length ? pVal : '-'}</span>
+                  </div>
+                  <div class="flex flex-wrap gap-2 min-h-[82px] items-center">
+                    ${this.player.length ? this.player.map(c => this.cardHTML(c, false)).join('') : '<span class="text-xs text-stone-500 italic">Cliquez sur Distribuer</span>'}
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-center text-xs sm:text-sm font-bold text-stone-200 min-h-[22px]">${this.lastMsg}</p>
+
+              ${!this.active ? `
+                <button onclick="MiniGames.blackjack.deal()" class="btn-brass w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer">
+                  DISTRIBUER LES CARTES
+                </button>
+              ` : `
+                <div class="grid grid-cols-3 gap-2.5">
+                  <button onclick="MiniGames.blackjack.hit()" class="btn-brass py-3.5 rounded-xl text-xs sm:text-sm cursor-pointer">TIRER</button>
+                  <button onclick="MiniGames.blackjack.stand()" class="btn-emerald-deco py-3.5 rounded-xl text-xs sm:text-sm cursor-pointer">RESTER</button>
+                  <button onclick="MiniGames.blackjack.double()" ${canDouble ? '' : 'disabled'} class="py-3.5 rounded-xl bg-amber-950 hover:bg-amber-900 border border-amber-400/50 text-amber-200 font-bold text-xs sm:text-sm cursor-pointer disabled:opacity-40">DOUBLER</button>
+                </div>
+              `}
+            </div>
+          `;
+        },
+
+        deal() {
+          if (this.active || Game.state.paused) return;
+          const bet = BetController.getBet();
+          if (bet <= 0 || bet > Game.state.balance) {
+            UI.toast('Solde insuffisant.', 'danger');
+            return;
+          }
+          this.bet = bet;
+          this.active = true;
+          this.hideDealer = true;
+          Game.addBalance(-bet);
+          AudioEngine.card();
+
+          this.deck = this.createDeck();
+          this.player = [this.deck.pop(), this.deck.pop()];
+          this.dealer = [this.deck.pop(), this.deck.pop()];
+
+          if (this.score(this.player) === 21) {
+            this.hideDealer = false;
+            this.active = false;
+            if (this.score(this.dealer) === 21) {
+              this.lastMsg = 'Égalité sur Blackjack ! Mise rendue.';
+              Game.addBalance(this.bet);
+            } else {
+              const win = Math.round(this.bet * 2.5);
+              this.lastMsg = `🎉 BLACKJACK ! Gain : +${UI.formatMoney(win)} (×2.5)`;
+              AudioEngine.win(true);
+              UI.npcReact('winLines');
+              Game.addBalance(win);
+            }
+          } else {
+            this.lastMsg = 'Tirer, Rester ou Doubler ?';
+          }
+          Game.renderActiveModalGame();
+        },
+
+        hit() {
+          if (!this.active) return;
+          AudioEngine.card();
+          this.player.push(this.deck.pop());
+          const pVal = this.score(this.player);
+          if (pVal > 21) {
+            this.active = false;
+            this.hideDealer = false;
+            this.lastMsg = `💥 Brûlé (${pVal}) ! Vous perdez ${UI.formatMoney(this.bet)}.`;
+            AudioEngine.lose();
+            UI.npcReact('loseLines');
+            Game.renderActiveModalGame();
+            Game.checkBankruptcy();
+            return;
+          }
+          if (pVal === 21) { this.stand(); return; }
+          Game.renderActiveModalGame();
+        },
+
+        double() {
+          if (!this.active || this.player.length !== 2 || Game.state.balance < this.bet) return;
+          AudioEngine.chip();
+          Game.addBalance(-this.bet);
+          this.bet *= 2;
+          this.player.push(this.deck.pop());
+          const pVal = this.score(this.player);
+          if (pVal > 21) {
+            this.active = false;
+            this.hideDealer = false;
+            this.lastMsg = `💥 Doublé et brûlé (${pVal}) ! Perte de ${UI.formatMoney(this.bet)}.`;
+            AudioEngine.lose();
+            UI.npcReact('loseLines');
+            Game.renderActiveModalGame();
+            Game.checkBankruptcy();
+          } else {
+            this.stand();
+          }
+        },
+
+        stand() {
+          if (!this.active) return;
+          this.active = false;
+          this.hideDealer = false;
+          while (this.score(this.dealer) < 17) this.dealer.push(this.deck.pop());
+
+          const p = this.score(this.player);
+          const d = this.score(this.dealer);
+          if (d > 21 || p > d) {
+            const win = this.bet * 2;
+            this.lastMsg = `🎉 Vous gagnez (${p} vs ${d}) ! +${UI.formatMoney(win)}`;
+            AudioEngine.win(false);
+            UI.npcReact('winLines');
+            Game.addBalance(win);
+          } else if (p === d) {
+            this.lastMsg = `Égalité (${p} partout). Mise remboursée.`;
+            Game.addBalance(this.bet);
+          } else {
+            this.lastMsg = `Le croupier gagne (${d} vs ${p}). Perte de ${UI.formatMoney(this.bet)}.`;
+            AudioEngine.lose();
+            UI.npcReact('loseLines');
+          }
+          Game.renderActiveModalGame();
+          if (d <= 21 && p < d) Game.checkBankruptcy();
+        }
+      },
+
+      /* ----------------------------------------------------------------------
+         ÉTAGE 2 — JEU 4 : ROULETTE EUROPÉENNE (CANVAS TOURNANT + BILLE)
+         ---------------------------------------------------------------------- */
+      roulette: {
+        spinning: false,
+        betType: 'red',
+        chosenNum: 7,
+        lastNum: 0,
+        wheelRot: 0,
+        ballAngle: 0,
+        lastMsg: 'Placez votre jeton sur le tapis et lancez la bille d’ivoire !',
+        wheelOrder: [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26],
+        reds: [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36],
+
+        getColor(n) {
+          if (n === 0) return 'green';
+          return this.reds.includes(n) ? 'red' : 'black';
+        },
+
+        render(container) {
+          const opts = [
+            { id: 'red', label: 'ROUGE', mult: '×2' },
+            { id: 'black', label: 'NOIR', mult: '×2' },
+            { id: 'even', label: 'PAIR', mult: '×2' },
+            { id: 'odd', label: 'IMPAIR', mult: '×2' },
+            { id: 'd1', label: '1ère Douz. (1-12)', mult: '×3' },
+            { id: 'd2', label: '2ème Douz. (13-24)', mult: '×3' },
+            { id: 'd3', label: '3ème Douz. (25-36)', mult: '×3' },
+            { id: 'straight', label: `Numéro Plein (${this.chosenNum})`, mult: '×14' }
+          ];
+
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="flex flex-col sm:flex-row items-center gap-4 bg-black/55 p-3.5 rounded-2xl border border-amber-500/25">
+                <canvas id="roulette-canvas" width="160" height="160" class="w-36 h-36 sm:w-40 sm:h-40 shrink-0"></canvas>
+
+                <div class="grid grid-cols-2 gap-2 w-full">
+                  ${opts.map(o => `
+                    <button onclick="MiniGames.roulette.selectOpt('${o.id}')" class="px-3 py-2 rounded-xl border text-left transition cursor-pointer flex justify-between items-center text-xs ${
+                      this.betType === o.id
+                        ? 'border-amber-400 bg-amber-950/75 text-amber-200 font-extrabold'
+                        : 'border-stone-800 bg-stone-900/80 text-stone-300 hover:bg-stone-800'
+                    }">
+                      <span>${o.label}</span>
+                      <span class="font-mono-num font-bold text-amber-300">${o.mult}</span>
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between px-3.5 py-2 rounded-xl bg-stone-900/80 border border-stone-800 text-xs">
+                <span>Numéro Plein (0-36) :</span>
+                <div class="flex items-center gap-2">
+                  <button onclick="MiniGames.roulette.stepNum(-1)" class="w-7 h-7 rounded-lg bg-stone-800 hover:bg-stone-700 font-bold cursor-pointer">-</button>
+                  <span class="font-mono-num font-bold text-emerald-400 w-8 text-center">${this.chosenNum}</span>
+                  <button onclick="MiniGames.roulette.stepNum(1)" class="w-7 h-7 rounded-lg bg-stone-800 hover:bg-stone-700 font-bold cursor-pointer">+</button>
+                </div>
+              </div>
+
+              <p class="text-center text-xs sm:text-sm font-bold text-stone-200 min-h-[22px]">${this.lastMsg}</p>
+
+              <button id="roulette-btn" onclick="MiniGames.roulette.spin()" class="btn-brass w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer">
+                LANCER LA ROULETTE
+              </button>
+            </div>
+          `;
+          this.drawWheel();
+        },
+
+        drawWheel() {
+          const canvas = document.getElementById('roulette-canvas');
+          if (!canvas) return;
+          const ctx = canvas.getContext('2d');
+          const cx = canvas.width / 2, cy = canvas.height / 2, r = cx - 6;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          const slice = (Math.PI * 2) / 37;
+          for (let i = 0; i < 37; i++) {
+            const num = this.wheelOrder[i];
+            const a0 = this.wheelRot + i * slice;
+            const a1 = a0 + slice;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.arc(cx, cy, r, a0, a1);
+            ctx.closePath();
+            const col = this.getColor(num);
+            ctx.fillStyle = col === 'green' ? '#059669' : (col === 'red' ? '#b91c1c' : '#18181b');
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(212,175,55,0.35)';
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+
+          // Cercle central en laiton
+          ctx.beginPath();
+          ctx.arc(cx, cy, r * 0.48, 0, Math.PI * 2);
+          ctx.fillStyle = '#1c120c';
+          ctx.fill();
+          ctx.lineWidth = 3;
+          ctx.strokeStyle = '#d4af37';
+          ctx.stroke();
+
+          ctx.fillStyle = '#f6dc7a';
+          ctx.font = 'bold 18px JetBrains Mono, monospace';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(String(this.lastNum), cx, cy);
+
+          // Bille d'ivoire
+          const bx = cx + Math.cos(this.ballAngle) * (r * 0.76);
+          const by = cy + Math.sin(this.ballAngle) * (r * 0.76);
+          ctx.beginPath();
+          ctx.arc(bx, by, 5, 0, Math.PI * 2);
+          ctx.fillStyle = '#ffffff';
+          ctx.fill();
+        },
+
+        selectOpt(id) {
+          if (this.spinning) return;
+          AudioEngine.chip();
+          this.betType = id;
+          Game.renderActiveModalGame();
+        },
+
+        stepNum(d) {
+          if (this.spinning) return;
+          AudioEngine.chip();
+          this.chosenNum = (this.chosenNum + d + 37) % 37;
+          this.betType = 'straight';
+          Game.renderActiveModalGame();
+        },
+
+        spin() {
+          if (this.spinning || Game.state.paused) return;
+          const bet = BetController.getBet();
+          if (bet <= 0 || bet > Game.state.balance) {
+            UI.toast('Solde insuffisant.', 'danger');
+            return;
+          }
+
+          this.spinning = true;
+          Game.addBalance(-bet);
+          BetController.syncUI();
+
+          const btn = document.getElementById('roulette-btn');
+          if (btn) btn.disabled = true;
+
+          const winIndex = Math.floor(Math.random() * 37);
+          const resultNum = this.wheelOrder[winIndex];
+          const startTime = performance.now();
+          const duration = 1200;
+          const startWheel = this.wheelRot;
+          const startBall = this.ballAngle;
+
+          const animate = (now) => {
+            const t = Math.min(1, (now - startTime) / duration);
+            const ease = 1 - Math.pow(1 - t, 3);
+            this.wheelRot = startWheel + ease * Math.PI * 6;
+            const slice = (Math.PI * 2) / 37;
+            const targetBall = this.wheelRot + (winIndex + 0.5) * slice;
+            this.ballAngle = startBall * (1 - ease) + (targetBall - Math.PI * 8 * (1 - ease)) * ease;
+            if (Math.random() < 0.25) AudioEngine.tick();
+            this.drawWheel();
+
+            if (t < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              this.spinning = false;
+              this.lastNum = resultNum;
+              this.resolve(bet, resultNum);
+            }
+          };
+          requestAnimationFrame(animate);
+        },
+
+        resolve(bet, res) {
+          const col = this.getColor(res);
+          const colTxt = col === 'green' ? 'VERT' : (col === 'red' ? 'ROUGE' : 'NOIR');
+          let mult = 0;
+          if (this.betType === 'red' && col === 'red') mult = 2;
+          if (this.betType === 'black' && col === 'black') mult = 2;
+          if (this.betType === 'even' && res !== 0 && res % 2 === 0) mult = 2;
+          if (this.betType === 'odd' && res % 2 === 1) mult = 2;
+          if (this.betType === 'd1' && res >= 1 && res <= 12) mult = 3;
+          if (this.betType === 'd2' && res >= 13 && res <= 24) mult = 3;
+          if (this.betType === 'd3' && res >= 25 && res <= 36) mult = 3;
+          if (this.betType === 'straight' && res === this.chosenNum) mult = 14;
+
+          if (mult > 0) {
+            const win = bet * mult;
+            this.lastMsg = `🎉 Bille sur le ${res} (${colTxt}) ! Gain : +${UI.formatMoney(win)} (×${mult})`;
+            AudioEngine.win(mult >= 14);
+            UI.npcReact('winLines');
+            Game.addBalance(win);
+          } else {
+            this.lastMsg = `Bille sur le ${res} (${colTxt}). Perte de ${UI.formatMoney(bet)}.`;
+            AudioEngine.lose();
+            UI.npcReact('loseLines');
+          }
+          Game.renderActiveModalGame();
+          if (mult === 0) Game.checkBankruptcy();
+        }
+      },
+
+      /* ----------------------------------------------------------------------
+         ÉTAGE 3 — JEU 5 : CRASH « LA FUITE »
+         ---------------------------------------------------------------------- */
+      crash: {
+        running: false,
+        bet: 0,
+        mult: 1.00,
+        crashAt: 2.00,
+        startTime: 0,
+        rafId: null,
+        lastToneMult: 1.0,
+        history: [2.14, 1.32, 4.85, 1.08, 3.10],
+        lastMsg: 'Démarrez la berline blindée et encaissez avant l’arrestation !',
+
+        genCrashPoint() {
+          if (Math.random() < 0.04) return 1.00;
+          const raw = 0.96 / (1 - Math.random());
+          return Math.min(50, Math.max(1.01, Math.floor(raw * 100) / 100));
+        },
+
+        render(container) {
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-stone-400">Dernières fuites :</span>
+                <div class="flex gap-1.5">
+                  ${this.history.slice(0, 5).map(h => `
+                    <span class="px-2 py-0.5 rounded font-mono-num text-[11px] font-bold ${h >= 2 ? 'bg-emerald-950 text-emerald-300 border border-emerald-500/40' : 'bg-red-950 text-red-300 border border-red-500/40'}">${h.toFixed(2)}×</span>
+                  `).join('')}
+                </div>
+              </div>
+
+              <div class="relative h-44 sm:h-52 rounded-2xl bg-gradient-to-b from-slate-950 via-black to-red-950/20 border border-amber-500/35 overflow-hidden flex items-center justify-center">
+                <canvas id="crash-canvas" class="absolute inset-0 w-full h-full"></canvas>
+                <div class="relative z-10 text-center pointer-events-none">
+                  <span id="crash-mult-txt" class="font-mono-num font-black text-4xl sm:text-6xl text-amber-300 drop-shadow">${this.mult.toFixed(2)}×</span>
+                  <span id="crash-sub-txt" class="block text-xs font-bold text-stone-300 mt-1">
+                    ${this.running ? `Gain en direct : ${UI.formatMoney(Math.floor(this.bet * this.mult))}` : 'Moteur au ralenti'}
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-center text-xs sm:text-sm font-bold text-stone-200 min-h-[22px]">${this.lastMsg}</p>
+
+              ${!this.running ? `
+                <button onclick="MiniGames.crash.start()" class="btn-brass w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer">
+                  LANCER LA FUITE
+                </button>
+              ` : `
+                <button id="crash-cash-btn" onclick="MiniGames.crash.cashOut(false)" class="btn-emerald-deco w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer animate-pulse">
+                  💰 ENCAISSER (${UI.formatMoney(Math.floor(this.bet * this.mult))})
+                </button>
+              `}
+            </div>
+          `;
+          this.drawCurve(false);
+        },
+
+        drawCurve(busted) {
+          const canvas = document.getElementById('crash-canvas');
+          if (!canvas) return;
+          const r = canvas.getBoundingClientRect();
+          if (r.width === 0 || r.height === 0) return;
+          canvas.width = r.width;
+          canvas.height = r.height;
+          const ctx = canvas.getContext('2d');
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          const p = Math.min(1, (this.mult - 1) / 5);
+          const x = 22 + p * (canvas.width - 54);
+          const y = canvas.height - 22 - Math.pow(p, 0.85) * (canvas.height - 52);
+
+          ctx.beginPath();
+          ctx.moveTo(18, canvas.height - 18);
+          ctx.quadraticCurveTo(x * 0.55, canvas.height - 18, x, y);
+          ctx.strokeStyle = busted ? '#ef4444' : '#f6dc7a';
+          ctx.lineWidth = 4;
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.arc(x, y, 7, 0, Math.PI * 2);
+          ctx.fillStyle = busted ? '#ef4444' : '#10b981';
+          ctx.fill();
+        },
+
+        start() {
+          if (this.running || Game.state.paused) return;
+          const bet = BetController.getBet();
+          if (bet <= 0 || bet > Game.state.balance) {
+            UI.toast('Solde insuffisant.', 'danger');
+            return;
+          }
+
+          this.bet = bet;
+          this.running = true;
+          this.mult = 1.00;
+          this.lastToneMult = 1.00;
+          this.crashAt = this.genCrashPoint();
+          this.startTime = performance.now();
+
+          Game.addBalance(-bet);
+          Game.renderActiveModalGame();
+
+          const step = (now) => {
+            if (!this.running) return;
+            const sec = (now - this.startTime) / 1000;
+            this.mult = Math.max(1.00, Math.floor(Math.pow(Math.E, sec * 0.16) * 100) / 100);
+
+            if (this.mult - this.lastToneMult >= 0.15) {
+              this.lastToneMult = this.mult;
+              AudioEngine.crashRise(this.mult);
+            }
+
+            if (this.mult >= this.crashAt) {
+              this.bust();
+              return;
+            }
+
+            const winLive = Math.floor(this.bet * this.mult);
+            const mTxt = document.getElementById('crash-mult-txt');
+            const sTxt = document.getElementById('crash-sub-txt');
+            const cBtn = document.getElementById('crash-cash-btn');
+            if (mTxt) mTxt.textContent = `${this.mult.toFixed(2)}×`;
+            if (sTxt) sTxt.textContent = `Gain en direct : ${UI.formatMoney(winLive)}`;
+            if (cBtn) cBtn.textContent = `💰 ENCAISSER (${UI.formatMoney(winLive)})`;
+
+            this.drawCurve(false);
+            this.rafId = requestAnimationFrame(step);
+          };
+          this.rafId = requestAnimationFrame(step);
+        },
+
+        cashOut(auto = false) {
+          if (!this.running) return;
+          this.running = false;
+          if (this.rafId) cancelAnimationFrame(this.rafId);
+
+          const win = Math.floor(this.bet * this.mult);
+          this.history.unshift(this.crashAt);
+          this.lastMsg = auto
+            ? `⏱️ Encaissement auto à ${this.mult.toFixed(2)}× : +${UI.formatMoney(win)}`
+            : `🎉 Échappé à ${this.mult.toFixed(2)}× ! Gain : +${UI.formatMoney(win)}`;
+
+          AudioEngine.win(this.mult >= 3);
+          UI.npcReact('winLines');
+          Game.addBalance(win);
+          Game.renderActiveModalGame();
+        },
+
+        bust() {
+          this.running = false;
+          if (this.rafId) cancelAnimationFrame(this.rafId);
+          this.mult = this.crashAt;
+          this.history.unshift(this.crashAt);
+          this.lastMsg = `🚨 ARRESTATION à ${this.crashAt.toFixed(2)}× ! Perte de ${UI.formatMoney(this.bet)}.`;
+
+          AudioEngine.explosion();
+          UI.npcReact('loseLines');
+          Game.renderActiveModalGame();
+          const mTxt = document.getElementById('crash-mult-txt');
+          if (mTxt) {
+            mTxt.className = 'font-mono-num font-black text-4xl sm:text-5xl text-red-500';
+            mTxt.textContent = `STOP ${this.crashAt.toFixed(2)}×`;
+          }
+          this.drawCurve(true);
+          Game.checkBankruptcy();
+        }
+      },
+
+      /* ----------------------------------------------------------------------
+         ÉTAGE 3 — JEU 6 : DÉS DE LA PÈGRE (2 DÉS ANIMÉS)
+         ---------------------------------------------------------------------- */
+      dice: {
+        rolling: false,
+        betType: 'low',
+        values: [3, 4],
+        lastMsg: 'Pariez sur le lancer des 2 dés d’ivoire du Club Privé !',
+
+        dieHTML(val) {
+          const pips = {
+            1: [4], 2: [0, 8], 3: [0, 4, 8],
+            4: [0, 2, 6, 8], 5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8]
+          }[val] || [4];
+          return `
+            <div class="die-box w-20 h-20 rounded-2xl bg-stone-100 border-2 border-amber-400 shadow-xl grid grid-cols-3 grid-rows-3 p-3 gap-1">
+              ${Array.from({ length: 9 }).map((_, i) => `
+                <div class="flex items-center justify-center">
+                  ${pips.includes(i) ? `<span class="w-3 h-3 rounded-full ${val === 1 || val === 6 ? 'bg-red-600' : 'bg-stone-900'}"></span>` : ''}
+                </div>
+              `).join('')}
+            </div>
+          `;
+        },
+
+        render(container) {
+          const sum = this.values[0] + this.values[1];
+          const opts = [
+            { id: 'low', name: 'BAS (2 à 6)', mult: '×2' },
+            { id: 'high', name: 'HAUT (8 à 12)', mult: '×2' },
+            { id: 'seven', name: 'SEPT CHANCEUX (7)', mult: '×4.5' },
+            { id: 'double', name: 'DOUBLE IDENTIQUE', mult: '×5.5' }
+          ];
+
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="grid grid-cols-2 gap-2.5">
+                ${opts.map(o => `
+                  <button onclick="MiniGames.dice.select('${o.id}')" class="p-3 rounded-2xl border-2 text-left transition cursor-pointer flex items-center justify-between ${
+                    this.betType === o.id
+                      ? 'border-amber-400 bg-amber-950/75 text-amber-200 font-extrabold'
+                      : 'border-stone-800 bg-black/60 text-stone-300 hover:bg-stone-900'
+                  }">
+                    <span class="text-xs sm:text-sm font-bold">${o.name}</span>
+                    <span class="font-mono-num font-black text-amber-300">${o.mult}</span>
+                  </button>
+                `).join('')}
+              </div>
+
+              <div id="dice-arena" class="py-6 rounded-2xl bg-black/60 border border-amber-500/25 flex flex-col items-center justify-center gap-3">
+                <div class="flex gap-6">
+                  ${this.dieHTML(this.values[0])}
+                  ${this.dieHTML(this.values[1])}
+                </div>
+                <span class="font-mono-num text-xs text-amber-300">Somme actuelle : <strong>${sum}</strong></span>
+              </div>
+
+              <p class="text-center text-xs sm:text-sm font-bold text-stone-200 min-h-[22px]">${this.lastMsg}</p>
+
+              <button id="dice-btn" onclick="MiniGames.dice.roll()" class="btn-brass w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer">
+                JETER LES DEUX DÉS
+              </button>
+            </div>
+          `;
+        },
+
+        select(id) {
+          if (this.rolling) return;
+          AudioEngine.chip();
+          this.betType = id;
+          Game.renderActiveModalGame();
+        },
+
+        roll() {
+          if (this.rolling || Game.state.paused) return;
+          const bet = BetController.getBet();
+          if (bet <= 0 || bet > Game.state.balance) {
+            UI.toast('Solde insuffisant.', 'danger');
+            return;
+          }
+
+          this.rolling = true;
+          Game.addBalance(-bet);
+          BetController.syncUI();
+
+          const btn = document.getElementById('dice-btn');
+          if (btn) btn.disabled = true;
+
+          document.querySelectorAll('.die-box').forEach(el => el.classList.add('dice-rolling'));
+          const anim = setInterval(() => {
+            AudioEngine.tick();
+            this.values = [1 + Math.floor(Math.random() * 6), 1 + Math.floor(Math.random() * 6)];
+          }, 80);
+
+          setTimeout(() => {
+            clearInterval(anim);
+            this.rolling = false;
+            const d1 = 1 + Math.floor(Math.random() * 6);
+            const d2 = 1 + Math.floor(Math.random() * 6);
+            this.values = [d1, d2];
+            const sum = d1 + d2;
+            const isDouble = d1 === d2;
+
+            let mult = 0;
+            if (this.betType === 'low' && sum >= 2 && sum <= 6) mult = 2;
+            if (this.betType === 'high' && sum >= 8 && sum <= 12) mult = 2;
+            if (this.betType === 'seven' && sum === 7) mult = 4.5;
+            if (this.betType === 'double' && isDouble) mult = 5.5;
+
+            if (mult > 0) {
+              const win = Math.round(bet * mult);
+              this.lastMsg = `🎉 [${d1} + ${d2} = ${sum}] ! Gain : +${UI.formatMoney(win)} (×${mult})`;
+              AudioEngine.win(mult >= 4.5);
+              UI.npcReact('winLines');
+              Game.addBalance(win);
+            } else {
+              this.lastMsg = `[${d1} + ${d2} = ${sum}]. Perte de ${UI.formatMoney(bet)}.`;
+              AudioEngine.lose();
+              UI.npcReact('loseLines');
+            }
+            Game.renderActiveModalGame();
+            if (mult === 0) Game.checkBankruptcy();
+          }, 680);
+        }
+      },
+
+      /* ----------------------------------------------------------------------
+         ÉTAGE 4 — JEU 7 : MINES DU SYNDICAT (5x5 LINGOTS VS DYNAMITE)
+         ---------------------------------------------------------------------- */
+      mines: {
+        active: false,
+        bet: 0,
+        bombs: 5,
+        grid: [],
+        revealedCount: 0,
+        revealedAll: false,
+        lastMsg: 'Ouvrez les coffres pour extraire les lingots sans déclencher la dynamite !',
+
+        getMult() {
+          if (this.revealedCount === 0) return 1.00;
+          let prob = 1;
+          for (let i = 0; i < this.revealedCount; i++) {
+            prob *= (25 - this.bombs - i) / (25 - i);
+          }
+          return Math.round((0.97 / prob) * 100) / 100;
+        },
+
+        render(container) {
+          const mult = this.getMult();
+          const winLive = Math.floor(this.bet * mult);
+
+          container.innerHTML = `
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex gap-1.5">
+                  ${[3, 5, 10].map(b => `
+                    <button onclick="MiniGames.mines.setBombs(${b})" ${this.active ? 'disabled' : ''} class="px-3 py-1.5 rounded-xl text-xs font-bold border cursor-pointer ${
+                      this.bombs === b
+                        ? 'border-amber-400 bg-amber-950 text-amber-200'
+                        : 'border-stone-800 bg-black/60 text-stone-400'
+                    } disabled:opacity-50">${b} Dynamites</button>
+                  `).join('')}
+                </div>
+                <span class="font-mono-num text-xs text-amber-300">Multiplicateur : <strong>${mult.toFixed(2)}×</strong></span>
+              </div>
+
+              <div class="grid grid-cols-5 gap-2 max-w-[330px] mx-auto">
+                ${Array.from({ length: 25 }).map((_, i) => {
+                  const c = this.grid[i];
+                  if (!c || (!c.open && !this.revealedAll)) {
+                    return `
+                      <button onclick="MiniGames.mines.openCell(${i})" ${this.active ? '' : 'disabled'} class="aspect-square rounded-xl bg-gradient-to-b from-stone-800 to-stone-950 border border-amber-500/35 hover:border-amber-300 flex items-center justify-center text-amber-500/40 font-deco text-sm cursor-pointer disabled:cursor-default">
+                        ◆
+                      </button>
+                    `;
+                  }
+                  if (c.bomb) {
+                    return `<div class="aspect-square rounded-xl bg-red-950 border-2 border-red-500 flex items-center justify-center text-xl">🧨</div>`;
+                  }
+                  return `<div class="aspect-square rounded-xl bg-amber-950/80 border border-amber-400 flex items-center justify-center text-xl">🪙</div>`;
+                }).join('')}
+              </div>
+
+              <p class="text-center text-xs sm:text-sm font-bold text-stone-200 min-h-[22px]">${this.lastMsg}</p>
+
+              ${!this.active ? `
+                <button onclick="MiniGames.mines.start()" class="btn-brass w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer">
+                  OUVRIR LE COFFRE (${this.bombs} DYNAMITES)
+                </button>
+              ` : `
+                <button onclick="MiniGames.mines.cashOut()" ${this.revealedCount === 0 ? 'disabled' : ''} class="btn-emerald-deco w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer">
+                  💰 ENCAISSER (${UI.formatMoney(winLive)})
+                </button>
+              `}
+            </div>
+          `;
+        },
+
+        setBombs(b) {
+          if (this.active) return;
+          AudioEngine.chip();
+          this.bombs = b;
+          Game.renderActiveModalGame();
+        },
+
+        start() {
+          if (this.active || Game.state.paused) return;
+          const bet = BetController.getBet();
+          if (bet <= 0 || bet > Game.state.balance) {
+            UI.toast('Solde insuffisant.', 'danger');
+            return;
+          }
+
+          this.bet = bet;
+          this.active = true;
+          this.revealedAll = false;
+          this.revealedCount = 0;
+          Game.addBalance(-bet);
+          AudioEngine.chip();
+
+          const cells = Array.from({ length: 25 }, (_, i) => ({ bomb: i < this.bombs, open: false }));
+          for (let i = cells.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [cells[i], cells[j]] = [cells[j], cells[i]];
+          }
+          this.grid = cells;
+          this.lastMsg = 'Cliquez sur un coffre pour extraire un lingot d’or...';
+          Game.renderActiveModalGame();
+        },
+
+        openCell(i) {
+          if (!this.active) return;
+          const cell = this.grid[i];
+          if (!cell || cell.open) return;
+          cell.open = true;
+
+          if (cell.bomb) {
+            this.active = false;
+            this.revealedAll = true;
+            this.lastMsg = `💥 EXPLOSION ! La dynamite a détruit votre mise de ${UI.formatMoney(this.bet)}.`;
+            AudioEngine.explosion();
+            UI.npcReact('loseLines');
+            Game.renderActiveModalGame();
+            Game.checkBankruptcy();
+            return;
+          }
+
+          this.revealedCount++;
+          AudioEngine.win(false);
+          const m = this.getMult();
+          this.lastMsg = `🪙 Lingot extrait ! Multiplicateur actuel : ${m.toFixed(2)}×`;
+          if (this.revealedCount >= 25 - this.bombs) {
+            this.cashOut();
+            return;
+          }
+          Game.renderActiveModalGame();
+        },
+
+        cashOut() {
+          if (!this.active || this.revealedCount === 0) return;
+          const m = this.getMult();
+          const win = Math.floor(this.bet * m);
+          this.active = false;
+          this.revealedAll = true;
+          this.lastMsg = `🎉 Encaissé à ${m.toFixed(2)}× ! Gain : +${UI.formatMoney(win)}`;
+          AudioEngine.win(m >= 2.5);
+          UI.npcReact('winLines');
+          Game.addBalance(win);
+          Game.renderActiveModalGame();
+        }
+      },
+
+      /* ----------------------------------------------------------------------
+         ÉTAGE 4 — JEU 8 : HIGH-LOW VIP
+         ---------------------------------------------------------------------- */
+      hilow: {
+        active: false,
+        bet: 0,
+        card: { r: '7', v: 7, s: '♠' },
+        mult: 1.00,
+        streak: 0,
+        lastMsg: 'La prochaine carte sera-t-elle Plus Haute ou Plus Basse ? (As = 1, Roi = 13)',
+
+        randomCard() {
+          const suits = ['♠', '♥', '♦', '♣'];
+          const ranks = [
+            { r: 'A', v: 1 }, { r: '2', v: 2 }, { r: '3', v: 3 }, { r: '4', v: 4 },
+            { r: '5', v: 5 }, { r: '6', v: 6 }, { r: '7', v: 7 }, { r: '8', v: 8 },
+            { r: '9', v: 9 }, { r: '10', v: 10 }, { r: 'J', v: 11 }, { r: 'Q', v: 12 }, { r: 'K', v: 13 }
+          ];
+          const pick = ranks[Math.floor(Math.random() * ranks.length)];
+          return { r: pick.r, v: pick.v, s: suits[Math.floor(Math.random() * suits.length)] };
+        },
+
+        getOdds(v) {
+          const hi = Math.max(1, 13 - v);
+          const lo = Math.max(1, v - 1);
+          return {
+            highMult: v === 13 ? 1.15 : Math.max(1.12, Math.round((12.4 / hi) * 100) / 100),
+            lowMult: v === 1 ? 1.15 : Math.max(1.12, Math.round((12.4 / lo) * 100) / 100)
+          };
+        },
+
+        render(container) {
+          const c = this.card;
+          const red = c.s === '♥' || c.s === '♦';
+          const { highMult, lowMult } = this.getOdds(c.v);
+          const winLive = Math.floor(this.bet * this.mult);
+
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="flex justify-between items-center text-xs px-3 py-2 rounded-xl bg-black/60 border border-amber-500/25">
+                <span>Série réussie : <strong class="font-mono-num text-amber-300">${this.streak}</strong></span>
+                <span>Multiplicateur cumulé : <strong class="font-mono-num text-emerald-400 text-sm">${this.mult.toFixed(2)}×</strong></span>
+              </div>
+
+              <div class="py-3 flex flex-col items-center">
+                <div class="w-24 h-36 rounded-2xl bg-stone-100 border-2 border-amber-400 shadow-2xl p-3 flex flex-col justify-between ${red ? 'text-red-600' : 'text-stone-900'}">
+                  <span class="font-black text-lg leading-none">${c.r}${c.s}</span>
+                  <span class="text-4xl self-center leading-none">${c.s}</span>
+                  <span class="font-black text-lg leading-none self-end rotate-180">${c.r}${c.s}</span>
+                </div>
+              </div>
+
+              <p class="text-center text-xs sm:text-sm font-bold text-stone-200 min-h-[22px]">${this.lastMsg}</p>
+
+              ${!this.active ? `
+                <button onclick="MiniGames.hilow.start()" class="btn-brass w-full py-4 rounded-2xl text-base tracking-wider cursor-pointer">
+                  TIRER LA PREMIÈRE CARTE
+                </button>
+              ` : `
+                <div class="grid grid-cols-2 gap-3">
+                  <button onclick="MiniGames.hilow.guess('high')" class="p-3.5 rounded-2xl bg-amber-950 hover:bg-amber-900 border border-amber-400/60 text-amber-200 font-bold text-xs sm:text-sm cursor-pointer">
+                    ▲ PLUS HAUT (×${highMult.toFixed(2)})
+                  </button>
+                  <button onclick="MiniGames.hilow.guess('low')" class="p-3.5 rounded-2xl bg-stone-900 hover:bg-stone-800 border border-stone-600 text-stone-200 font-bold text-xs sm:text-sm cursor-pointer">
+                    ▼ PLUS BAS (×${lowMult.toFixed(2)})
+                  </button>
+                </div>
+                <button onclick="MiniGames.hilow.cashOut()" ${this.streak === 0 ? 'disabled' : ''} class="btn-emerald-deco w-full py-3.5 rounded-2xl text-sm tracking-wider cursor-pointer">
+                  💰 ENCAISSER (${UI.formatMoney(winLive)})
+                </button>
+              `}
+            </div>
+          `;
+        },
+
+        start() {
+          if (this.active || Game.state.paused) return;
+          const bet = BetController.getBet();
+          if (bet <= 0 || bet > Game.state.balance) {
+            UI.toast('Solde insuffisant.', 'danger');
+            return;
+          }
+
+          this.bet = bet;
+          this.active = true;
+          this.mult = 1.00;
+          this.streak = 0;
+          this.card = this.randomCard();
+          Game.addBalance(-bet);
+          AudioEngine.card();
+          this.lastMsg = 'Plus Haut ou Plus Bas que cette carte ?';
+          Game.renderActiveModalGame();
+        },
+
+        guess(dir) {
+          if (!this.active) return;
+          const prev = this.card.v;
+          const { highMult, lowMult } = this.getOdds(prev);
+          const next = this.randomCard();
+          AudioEngine.card();
+
+          if (next.v === prev) {
+            this.card = next;
+            this.lastMsg = `Égalité (${next.r}${next.s}) ! Multiplicateur ${this.mult.toFixed(2)}× conservé.`;
+            Game.renderActiveModalGame();
+            return;
+          }
+
+          const won = (dir === 'high' && next.v > prev) || (dir === 'low' && next.v < prev);
+          this.card = next;
+          if (won) {
+            const step = dir === 'high' ? highMult : lowMult;
+            this.streak++;
+            this.mult = Math.round(this.mult * step * 100) / 100;
+            this.lastMsg = `🎉 Bien vu (${next.r}${next.s}) ! Multiplicateur : ${this.mult.toFixed(2)}×`;
+            AudioEngine.win(false);
+            Game.renderActiveModalGame();
+          } else {
+            this.active = false;
+            this.lastMsg = `💥 Raté ! C'était ${next.r}${next.s}. Perte de ${UI.formatMoney(this.bet)}.`;
+            AudioEngine.lose();
+            UI.npcReact('loseLines');
+            Game.renderActiveModalGame();
+            Game.checkBankruptcy();
+          }
+        },
+
+        cashOut() {
+          if (!this.active || this.streak === 0) return;
+          const win = Math.floor(this.bet * this.mult);
+          this.active = false;
+          this.lastMsg = `🎉 Série encaissée à ${this.mult.toFixed(2)}× ! +${UI.formatMoney(win)}`;
+          AudioEngine.win(this.mult >= 2.5);
+          UI.npcReact('winLines');
+          Game.addBalance(win);
+          Game.renderActiveModalGame();
+        }
+      }
+    };
+
+    /* ========================================================================
+       9. INITIALISATION AU CHARGEMENT
+       ======================================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+      Records.load();
+      AmbientFX.start();
+    });
+  </script>
+</body>
+</html>
